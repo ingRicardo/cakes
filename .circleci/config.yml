@@ -33,6 +33,9 @@ jobs:
           name: "Generate Service Account Authentication"
           command: 'echo "$GOOGLE_APPLICATION_CREDENTIALS_BASE_64" | base64 --decode > $GOOGLE_APPLICATION_CREDENTIALS'
       - run:
+          name: "firebase login "
+          command: './node_modules/.bin/firebase login --no-localhost'
+      - run:
           name: "Deploy app to Firebase Hosting"
           command: "./node_modules/.bin/firebase deploy --non-interactive"
       - run:
