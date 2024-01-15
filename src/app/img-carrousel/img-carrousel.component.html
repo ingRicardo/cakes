@@ -1,0 +1,64 @@
+<div class="box">
+    <div>
+    <carousel [isAnimated]="true"   [interval]="0" >
+
+        <slide *ngFor="let cake of cakesData" style="width: 100%; flex-direction: column;">
+            <!-- <img mat-card-image [src]= "cake.image"  alt="first slide" style="display: block; width: 100%;"> -->
+
+            <mat-card class="example-card"  >
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{cake.name}}</mat-card-title>
+                    <mat-card-subtitle>{{cake.flavor}}</mat-card-subtitle>
+                </mat-card-header>
+                <div style="text-align: center;">
+                    <img mat-card-image [src]="cake.image" alt="Photo of a Shiba Inu" width="100%" >
+                </div>
+                <mat-card-content>
+                    <p>{{cake.size}}</p>
+                    <p>
+                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                        bred for hunting.
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                </mat-card-actions>
+            </mat-card>
+
+
+            <!--   <div class="carousel-caption d-none d-md-block">
+            <h3>{{cake.name}}</h3>
+            <p>{{cake.flavor}}</p>
+            <p>{{cake.size}}</p>
+        </div>
+        -->
+        </slide>
+        <!--
+    <slide>
+      <img src="../../assets/img/birthdaycake.jpg" alt="first slide" style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>First slide label</h3>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>
+    </slide>
+    <slide>
+      <img src="../../assets/img/birthdaycake.jpg" alt="second slide" style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Second slide label</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </slide>
+    <slide>
+      <img src="../../assets/img/birthdaycake.jpg" alt="third slide" style="display: block; width: 100%;">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Third slide label</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </slide>
+    -->
+    </carousel>
+    </div>
+</div>

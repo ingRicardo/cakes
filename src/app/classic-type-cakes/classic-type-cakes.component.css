@@ -1,0 +1,9 @@
+.example-card {
+    max-width: 800px;
+  }
+  
+  .example-header-image {
+    background-image: url('../../assets/img/cakeslogoex.jpg');
+    background-size: cover;
+  }
+  

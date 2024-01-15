@@ -1,0 +1,267 @@
+@switch (stepperOrientation | async) {
+    @case ('horizontal') {
+      <div> </div>
+    }
+    @case ('vertical') {
+      <div> </div>
+    }
+  }
+
+  <p style="text-align: right;">
+    <span class="fontclass">Create your cake</span>
+    <button type="button" mat-raised-button color="warn" (click)="closeStepsEventFunc(false)"><span>X</span></button>
+</p>
+
+  
+  <mat-stepper
+    class="example-stepper"
+    [orientation]="(stepperOrientation | async)!">
+    <mat-step [stepControl]="firstFormGroup" label="Fill out your name and Ingredients">
+
+      <form [formGroup]="firstFormGroup">
+        <div style="text-align: left;">
+        <mat-form-field style="margin: 5px;">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required  [(ngModel)]="currentNameValue" (keydow)="validateString($event)">
+        </mat-form-field>
+        <mat-form-field style="margin: 5px;">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com" [(ngModel)]="currentEmailValue" >
+          @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+            <mat-error>Please enter a valid email address</mat-error>
+          }
+          @if (emailFormControl.hasError('required')) {
+            <mat-error>Email is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field style="margin: 5px;">
+          <mat-label>Ingredients</mat-label>
+          <mat-select [formControl]="ingredients" multiple required [(ngModel)]="currentIngredientValues">
+            <mat-select-trigger>
+              {{ingredients.value?.[0] || ''}}
+              @if ((ingredients.value?.length || 0) > 1) {
+                <span class="example-additional-selection">
+                  (+{{(ingredients.value?.length || 0) - 1}} {{ingredients.value?.length === 2 ? 'other' : 'others'}})
+                </span>
+              }
+            </mat-select-trigger>
+            @for (ingredient of ingredientsList; track ingredient) {
+          <mat-option [value]="ingredient">{{ingredient}}</mat-option>
+        }
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field style="margin: 5px;">
+          <mat-label>Select type of cake</mat-label>
+          <mat-select [(value)]="typeOfCake">
+            <mat-option>None</mat-option>
+            <mat-option value="classic">Classic</mat-option>
+            <mat-option value="fondant">Fondant</mat-option>
+            <mat-option value="mixed">Mixed</mat-option>
+            <mat-option value="3milks">3 Milks</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+
+        <mat-form-field style="margin: 5px;" >
+          <mat-label>Choose size</mat-label>
+          <mat-select [disabled]="disableSelect.value"  [(value)]="cakeSize">
+            <mat-option value="small">Small</mat-option>
+            <mat-option value="double" disabled>Double (disabled)</mat-option>
+            <mat-option value="medium">Medium</mat-option>
+            <mat-option value="large">Large</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field style="margin: 5px;" >
+          <mat-label>Choose Event</mat-label>
+          <mat-select [disabled]="disableSelect.value"  [(value)]="cakeEvent">
+            <mat-option value="birthday">Birthday</mat-option>
+            <mat-option value="double" disabled>Double (disabled)</mat-option>
+            <mat-option value="halloween">Halloween</mat-option>
+            <mat-option value="christmas">Christmas</mat-option>
+            <mat-option value="weeding">Weeding</mat-option>
+
+          </mat-select>
+
+
+        </mat-form-field>
+
+        <mat-form-field style="margin: 5px;" >
+          <mat-label>Choose Shape</mat-label>
+          <mat-select [disabled]="disableSelect.value"  [(value)]="cakeShape">
+            <mat-option value="circular">Circular</mat-option>
+            <mat-option value="double" disabled>Double (disabled)</mat-option>
+            <mat-option value="rectangular">Rectangular</mat-option>
+            <mat-option value="doubleCircular">Double Circular</mat-option>
+            <mat-option value="doubleRectangular">Double Rectangular</mat-option>
+
+          </mat-select>
+
+
+        </mat-form-field>
+
+
+
+
+        
+        <mat-form-field class="example-full-width" style="margin: 5px;">
+          <mat-label>Design/Draw</mat-label>
+          <input matInput placeholder="Ex. Wonderwoman" value="Spiderman" formControlName="firstCtrl" [(ngModel)]="desingOnCake">
+        </mat-form-field>
+
+
+        <mat-form-field class="example-full-width" style="margin: 5px;">
+          <mat-label>Text on top of the cake</mat-label>
+          <input matInput placeholder="Ex. happy birthday Melissa" value="happy birthday Melissa"  formControlName="firstCtrl" [(ngModel)]="textOnCake">
+        </mat-form-field>
+
+      <!--  <p>You selected: {{typeOfCake}}</p> -->
+
+      </div>
+    
+        <div>  </div>
+
+        <div>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+      <form [formGroup]="secondFormGroup">
+        <mat-form-field>
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+                 required [(ngModel)]="currentAddressValue">
+        </mat-form-field>
+        
+        <app-date-picker  (newDateEvent)="getDateString($any($event))"  style="margin: 5px;"></app-date-picker>
+
+        <mat-form-field class="example-full-width"  style="margin: 5px;">
+          <mat-label>Leave a comment</mat-label>
+          <textarea matInput placeholder="Ex. It makes me feel..."  formControlName="secondCtrl"  [(ngModel)]="notesArea" ></textarea>
+        </mat-form-field>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="thirdFormGroup" label="Fill out your phone number">
+      <form [formGroup]="thirdFormGroup">
+       <!-- <mat-form-field>
+          <mat-label>Phone number</mat-label>
+          <input matInput formControlName="thirdCtrl" placeholder="Ex. 12345678" required [(ngModel)]="currentCellNumberValue">
+        </mat-form-field>
+      -->
+        <mat-form-field>
+          <mat-label>Cellephone</mat-label>
+          <span matPrefix>+52 &nbsp;</span>
+          <input matInput type="tel"  placeholder="Ex. 664 1268391" formControlName="thirdCtrl" required [(ngModel)]="currentCellNumberValue">
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
+
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel  >Done</ng-template>
+      <p>You are now done.  </p>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>Confirmation</mat-card-title>
+        <mat-card-subtitle>
+          <p *ngIf="uniqueId">
+            <label>orderId: </label>
+            <span style="color: red; font-size: larger; font-weight: bold;"> {{uniqueId}} </span> 
+          </p>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+
+    
+  
+        <p *ngIf="currentNameValue">
+          <label class="labelclass">Name: </label>
+          <span> {{currentNameValue}}</span>
+        </p>
+        
+        <p *ngIf="currentIngredientValues">
+          <label class="labelclass">Ingredients: </label>
+          {{currentIngredientValues}}
+        </p>
+
+
+        <p *ngIf="typeOfCake">
+          <label class="labelclass">Type: </label>
+          {{typeOfCake}}
+        </p>
+    
+
+        <p *ngIf="cakeSize">
+          <label class="labelclass">Size: </label>
+          {{cakeSize}}
+        </p>
+    
+
+        <p *ngIf="cakeEvent">
+          <label class="labelclass">Event: </label>
+          {{cakeEvent}}
+        </p>
+
+
+        <p *ngIf="desingOnCake">
+          <label class="labelclass">Design/Draw: </label>
+          {{desingOnCake}}
+        </p>
+
+        <p *ngIf="textOnCake">
+          <label class="labelclass">Text On top: </label>
+          {{textOnCake}}
+        </p>
+
+
+        <p *ngIf="stringDate">
+          <label class="labelclass">Delivery Date: </label>
+          {{stringDate}}
+        </p>
+
+        <p *ngIf="notesArea">
+          <label class="labelclass">Notes/Comments: </label>
+          {{notesArea}}
+        </p>
+    
+        <p *ngIf="currentAddressValue">
+          <label class="labelclass">Address: </label>
+          {{currentAddressValue}}
+        </p>
+        <p *ngIf="currentCellNumberValue">
+          <label class="labelclass">Cellphone: </label>
+          {{currentCellNumberValue}}
+        </p>
+    
+      </mat-card-content>
+      <mat-card-actions>
+        <button style="margin: 5px;" mat-raised-button color="primary" (click)="insertValues()">Accept</button>
+        <button mat-button matStepperPrevious>Back</button>
+      </mat-card-actions>
+    </mat-card>
+
+
+   
+     
+     
+   
+
+        
+
+
+    </mat-step>
+  </mat-stepper>
+ 

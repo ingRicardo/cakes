@@ -1,0 +1,23 @@
+<button mat-raised-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="showClassicFunc(showClassic)">Classic</button>
+  <button mat-menu-item>Fondant</button>
+  <button mat-menu-item (click)="showCreateCakeFunc(showCreateCake)"><span style="color: blue; font-weight: bold;">Create your Order</span></button>
+</mat-menu>
+<!--<p style="margin-top: 10px;">
+  <button mat-raised-button (click)="showCreateCakeFunc(showCreateCake)">Create</button>
+</p>
+-->
+<p style="margin-top: 10px;">
+  <button mat-raised-button (click)="showCommentSecFunct(showComment)" >{{txtcomment}}</button>
+</p>
+
+<p style="margin-top: 10px;">
+  <button mat-raised-button (click)="showMostFunc(showMost)" >{{txtmost}}</button>
+
+</p>
+
+<p style="margin-top: 10px;">
+  <button mat-raised-button (click)="showContactFunc(showContact)" >{{txtcontact}}</button>
+
+</p>

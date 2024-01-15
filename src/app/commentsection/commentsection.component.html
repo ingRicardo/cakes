@@ -1,0 +1,24 @@
+
+<h2>Let us know your Opinion</h2>
+
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Your Name</mat-label>
+      <input matInput placeholder="Ex. Riky" name="inputname" [(ngModel)]="userName" >
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Leave a comment</mat-label>
+      <textarea matInput placeholder="Ex. It makes me feel..."  name="commentarea" [(ngModel)]="commentArea"></textarea>
+    </mat-form-field>
+  </form>
+  <div style="text-align: right;">
+    <button style="margin: 5px;" mat-raised-button color="primary" (click)="insertComment()">Post</button>
+  </div>
+  
+
+  <div *ngFor="let comment of cakesComments">
+    <mat-form-field class="example-full-width">
+        <mat-label>{{comment.name}} : </mat-label> <textarea  name="postcomment"  matInput type="text" value={{comment.comment}} readonly></textarea>
+    </mat-form-field>
+ </div>

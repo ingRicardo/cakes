@@ -1,0 +1,34 @@
+<p>restapis works!</p>
+
+<p> get cakes from rest framework Django</p>
+<button (click)="callDjangoService()">Cakes </button>
+
+<div  *ngIf="cakesDataDjango">
+    <table class="table table-striped">  
+    <thead>  
+        <tr>  
+          <th>cakeevent</th>  
+          <th>caketype</th>  
+          <th>created_date</th>  
+          <th>size</th>  
+        </tr>  
+    </thead>  
+    <tbody>  
+      <tr *ngFor="let cakes of cakesDataDjango">  
+        <td>{{ cakes.cakeevent }}</td>  
+        <td>{{ cakes.caketype }}</td>  
+        <td>{{ cakes.created_date }}</td>  
+        <td>{{ cakes.size }}</td>  
+      </tr>  
+    </tbody>  
+  </table>  
+
+</div>
+<button (click)="insertJson()">insert</button>
+
+<p>test comments</p>
+<button (click)="getCakesComments()">getComments</button>
+
+<div *ngFor="let comment of cakesComments">
+   <label>{{comment.name}} : </label> <input type="text" value={{comment.comment}}>
+</div>

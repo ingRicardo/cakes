@@ -1,0 +1,54 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Let's see some cakes</p>
+<!--      @if (showFiller) {
+        <p>Lorem, ipsum dolor sit amet consectetur.</p>
+      }
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button> -->
+      <app-menuover (showClassicEvent)="receiveClassic($any($event))"
+                    (showCreateCakeEvent) ="getShowCreateStepsFunc($any($event))"
+                    (showCommentSecEvent) ="getCommentFlag($any($event))"
+                    (showMostWantedEvent)="getMostFlag($any($event))" 
+                    (showContactEvent)="getContactFlag($any($event))">
+      </app-menuover>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+
+      <div class="box">
+        <div style="margin-top: 5px; margin-bottom: 5px;">
+          <button type="button"mat-raised-button (click)="drawer.toggle()">
+          Cake's Menu
+          </button>
+          <div style="margin-top: 5px;" >
+            <h2>Our Mission</h2>
+            <p> Our mission is to create the delicious cakes you design and deliver them to your house  </p>
+          </div>
+        </div>
+        <div style="margin-bottom: 10px;"><app-contact *ngIf="showContactFlag"></app-contact></div>
+        <div style="margin-bottom: 10px;"><app-most-wanted *ngIf="showMostFlag"></app-most-wanted></div>
+        <div style="margin-bottom: 10px;"><app-commentsection *ngIf="showCommentSecFlag"></app-commentsection></div>
+        <div style="margin-bottom: 10px;"><app-cake-stepper *ngIf="showCreateSteps" (closeStepsEvent)="closeCreateSteps($any($event))"  ></app-cake-stepper></div>
+        <div><app-classic *ngIf="localClassicVal" (closeEvent)="closeClassic($any($event))" ></app-classic></div>
+        <div><img src= "../assets/img/cakeslogoex.jpg"  class="responsive"  > </div>
+        <div>
+          <table>
+            <tr>
+              <td>Address : Los Lobos</td>
+              <td></td><td></td>
+              <td>Cellphone: 6641268391</td>
+              <td></td><td></td>
+              <td>City: Tijuana, B.C. Mx</td>
+              <td></td><td></td>
+              <td>Dev: Riky</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      
+    </div>
+  
+  </mat-drawer-container>
+  
