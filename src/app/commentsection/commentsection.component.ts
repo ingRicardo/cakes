@@ -36,5 +36,7 @@ export class CommentsectionComponent {
           })
 
       })
+      this.commentArea = ""
+      this.userName = ""
   }
 }
