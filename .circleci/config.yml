@@ -13,6 +13,7 @@ jobs:
           command: |
             google-chrome --version
             chromedriver --version
+            replace-existing: true
           name: Check install
       - checkout
       - restore_cache:
