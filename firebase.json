@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "circle-cakes-app",
+    "public": "dist/circle-cakes-app",
     "ignore": [
       "firebase.json",
       "**/.*",
