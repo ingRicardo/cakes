@@ -16,24 +16,11 @@
   <mat-stepper
     class="example-stepper"
     [orientation]="(stepperOrientation | async)!">
-    <mat-step [stepControl]="firstFormGroup" label="Fill out your name and Ingredients">
+    <mat-step [stepControl]="firstFormGroup" label="Fill out Ingredients">
 
       <form [formGroup]="firstFormGroup">
         <div style="text-align: left;">
-        <mat-form-field style="margin: 5px;">
-          <mat-label>Name</mat-label>
-          <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required  [(ngModel)]="currentNameValue" (keydow)="validateString($event)">
-        </mat-form-field>
-        <mat-form-field style="margin: 5px;">
-          <mat-label>Email</mat-label>
-          <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com" [(ngModel)]="currentEmailValue" >
-          @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-            <mat-error>Please enter a valid email address</mat-error>
-          }
-          @if (emailFormControl.hasError('required')) {
-            <mat-error>Email is <strong>required</strong></mat-error>
-          }
-        </mat-form-field>
+
 
         <mat-form-field style="margin: 5px;">
           <mat-label>Ingredients</mat-label>
@@ -103,10 +90,6 @@
 
         </mat-form-field>
 
-
-
-
-        
         <mat-form-field class="example-full-width" style="margin: 5px;">
           <mat-label>Design/Draw</mat-label>
           <input matInput placeholder="Ex. Wonderwoman" value="Spiderman" formControlName="firstCtrl" [(ngModel)]="desingOnCake">
@@ -129,7 +112,7 @@
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup" label="Fill out your address">
+    <mat-step [stepControl]="secondFormGroup" label="Fill out address">
       <form [formGroup]="secondFormGroup">
         <mat-form-field>
           <mat-label>Address</mat-label>
@@ -150,15 +133,30 @@
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="thirdFormGroup" label="Fill out your phone number">
+    <mat-step [stepControl]="thirdFormGroup" label="Fill out your name">
       <form [formGroup]="thirdFormGroup">
        <!-- <mat-form-field>
           <mat-label>Phone number</mat-label>
           <input matInput formControlName="thirdCtrl" placeholder="Ex. 12345678" required [(ngModel)]="currentCellNumberValue">
         </mat-form-field>
       -->
+        <mat-form-field style="margin: 5px;">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Last name, First name" formControlName="thirdCtrl" required  [(ngModel)]="currentNameValue" (keydow)="validateString($event)">
+        </mat-form-field>
+        <mat-form-field style="margin: 5px;">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com" [(ngModel)]="currentEmailValue" >
+          @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+            <mat-error>Please enter a valid email address</mat-error>
+          }
+          @if (emailFormControl.hasError('required')) {
+            <mat-error>Email is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+
         <mat-form-field>
-          <mat-label>Cellephone</mat-label>
+          <mat-label>Cellphone</mat-label>
           <span matPrefix>+52 &nbsp;</span>
           <input matInput type="tel"  placeholder="Ex. 664 1268391" formControlName="thirdCtrl" required [(ngModel)]="currentCellNumberValue">
           <mat-icon matSuffix>mode_edit</mat-icon>
@@ -193,11 +191,15 @@
           <span> {{currentNameValue}}</span>
         </p>
         
+        <p *ngIf="currentEmailValue">
+          <label class="labelclass">Email: </label>
+          <span> {{currentEmailValue}}</span>
+        </p>
+        
         <p *ngIf="currentIngredientValues">
           <label class="labelclass">Ingredients: </label>
           {{currentIngredientValues}}
         </p>
-
 
         <p *ngIf="typeOfCake">
           <label class="labelclass">Type: </label>
