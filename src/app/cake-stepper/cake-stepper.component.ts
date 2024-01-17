@@ -38,6 +38,7 @@ export class CakeStepperComponent {
   desingOnCake: any;
   cakesInsertRes : any
   uniqueId : any
+  error :any 
 
   dateObj = new Date();
   month   = this.dateObj.getMonth() + 1; // months from 1-12
@@ -91,33 +92,66 @@ export class CakeStepperComponent {
     this.stringDate = dateItem
   }
 
+  validateEmail (email: any)  {
+    return email.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+  };
+
   insertValues(){
    // console.log("first values ", this.currentNameValue , "selected ingredients ", this.currentIngredientValues)
-    this.uniqueId = Math.random().toString(36).substr(2, 9);
-    console.log("email => ",  this.currentEmailValue)
-    this.data = {
-      name: this.currentNameValue, 
-      ingredients: this.currentIngredientValues,
-      type:this.typeOfCake,
-      size: this.cakeSize , 
-      event: this.cakeEvent,
-      shape: this.cakeShape,
-      address: this.currentAddressValue,
-      designdraw: this.desingOnCake,
-      textcake: this.textOnCake,
-      notes: this.notesArea,
-      deliverydate: this.stringDate,
-      cellphone: this.currentCellNumberValue,
-      uniqueId: this.uniqueId
-    };
-    if (this.currentNameValue){
-    this.insertjsonService.sendCakeJson(this.data, this.newDate, this.currentEmailValue).subscribe(
+
+    if (this.currentNameValue && this.validateEmail(this.currentEmailValue)
+       && this.currentIngredientValues && this.typeOfCake && this.cakeSize && this.cakeEvent
+      && this.cakeShape && this.currentAddressValue && this.desingOnCake &&  this.textOnCake
+      && this.stringDate && this.currentCellNumberValue){
+
+        this.error=""
+        
+        this.uniqueId = Math.random().toString(36).substr(2, 9);
+        console.log("email => ",  this.currentEmailValue)
+        this.data = {
+          name: this.currentNameValue, 
+          ingredients: this.currentIngredientValues,
+          type:this.typeOfCake,
+          size: this.cakeSize , 
+          event: this.cakeEvent,
+          shape: this.cakeShape,
+          address: this.currentAddressValue,
+          designdraw: this.desingOnCake,
+          textcake: this.textOnCake,
+          notes: this.notesArea,
+          deliverydate: this.stringDate,
+          cellphone: this.currentCellNumberValue,
+          uniqueId: this.uniqueId
+        };
+
+
+
+      this.insertjsonService.sendCakeJson(this.data, this.newDate, this.currentEmailValue).subscribe(
       res => {
         this.cakesInsertRes = res
-        console.log("Insert JSON  => ", this.cakesInsertRes)
-  
+        console.log(" JSON GENERATED  => ", this.cakesInsertRes)
       })
-      
+    }else {
+      console.log("JSON NOT GENERATED")
+      console.log("email => ",  this.currentEmailValue)
+      console.log( " name -> ", this.currentNameValue , "\n", 
+      "ingredients -> ", this.currentIngredientValues , "\n", 
+      "type -> ",this.typeOfCake , "\n",
+      "size -> ",this.cakeSize , "\n",
+      "event -> ",this.cakeEvent , "\n",
+      "shape -> ",this.cakeShape , "\n",
+      "address -> ",this.currentAddressValue , "\n",
+      "designdraw -> ",this.desingOnCake , "\n",
+      "textcake -> ",this.textOnCake , "\n",
+      "notes -> ",this.notesArea , "\n",
+      "deliverydate -> ",this.stringDate , "\n",
+      "cellphone -> ",this.currentCellNumberValue , "\n",
+      "uniqueId -> ",this.uniqueId , "\n",
+      )
+      if (!this.validateEmail(this.currentEmailValue)) this.error="PLEASE GO BACK AND CHECK YOUR E-MAIL" 
+      else  this.error=""
     }
       /*
     this.fileJson = new File([JSON.stringify(this.data)], "file.json", {type: "application/json'"}); 
