@@ -8,6 +8,7 @@ import { Observable, map } from 'rxjs';
 export class InsertjsonService {
   cakesUrl: string = 'https://web-production-b7404.up.railway.app/postjsoncake/';
   getcakesUrl : string ='https://web-production-b7404.up.railway.app/cakesjson/'
+  getcakesDataUrl : string = "https://web-production-b7404.up.railway.app/cakesdatajson/"
 
   constructor(private  httpClient:  HttpClient ) {}
   
@@ -17,6 +18,10 @@ export class InsertjsonService {
 
   getCakesJson(): Observable<any[]>{
     return this.httpClient.get<any[]>(this.getcakesUrl)
+  }
+
+  getCakesDataJson(): Observable<any[]>{
+    return this.httpClient.get<any[]>(this.getcakesDataUrl)
   }
 
   getCakesJsonType(): Observable<any[]>{
