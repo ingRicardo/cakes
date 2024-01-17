@@ -11,3 +11,13 @@
     width:100%;
     height:150%;
   }
+
+
+  img {
+    max-height: 600px !important;
+    min-width: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;  
+     
+  }

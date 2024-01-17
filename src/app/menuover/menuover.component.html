@@ -1,7 +1,7 @@
 <button mat-raised-button [matMenuTriggerFor]="menu">Menu</button>
 <mat-menu #menu="matMenu">
   <button mat-menu-item (click)="showClassicFunc(showClassic)">Classic</button>
-  <button mat-menu-item>Fondant</button>
+  <button mat-menu-item disabled>Fondant</button>
   <button mat-menu-item (click)="showCreateCakeFunc(showCreateCake)"><span style="color: blue; font-weight: bold;">Create your Order</span></button>
 </mat-menu>
 <!--<p style="margin-top: 10px;">
