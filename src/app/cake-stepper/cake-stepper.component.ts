@@ -112,6 +112,7 @@ export class CakeStepperComponent {
         console.log("email => ",  this.currentEmailValue)
         this.data = {
           name: this.currentNameValue, 
+          email: this.currentEmailValue,
           ingredients: this.currentIngredientValues,
           type:this.typeOfCake,
           size: this.cakeSize , 
