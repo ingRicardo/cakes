@@ -14,10 +14,11 @@ const moment = _rollupMoment || _moment;
 })
 export class DatePickerComponent {
 
+
   @Output() newDateEvent = new EventEmitter<string>();
 
   cakeDate !: Date
-  
+  seleDate : any
   date = new FormControl(moment());
   deliveryHour = "11:00 AM"
 
@@ -26,18 +27,24 @@ export class DatePickerComponent {
   }
 
   dateAndHour !: String
-  sendDateItem(value: string) {
+/*  sendDateItem(value: string) {
     this.dateAndHour = value +" "+ this.deliveryHour
     console.log("date inputAndHour value ===> ", this.dateAndHour.toString())
     this.newDateEvent.emit(this.dateAndHour.toString());
   }
+*/
+  onChangeEvent( selectedDate : any){
+    this.seleDate = selectedDate
+    this.dateAndHour = this.seleDate +"-"+ this.deliveryHour
+    console.log("DATE TO SEND : ", this.dateAndHour.toString())
+    this.newDateEvent.emit(this.dateAndHour.toString());
+  }
 
-  onChangeEvent(event : any){
-   // console.log(event);
-  //  console.log(event.value);
-    this.dateAndHour = this.cakeDate.toString() +"-"+ this.deliveryHour
-    console.log("value =====> ", this.cakeDate.toString() , " hour ===> ", this.deliveryHour)
-    
+  onHourSelected(selectedHour: any) {
+    this.deliveryHour = selectedHour
+    this.dateAndHour = this.seleDate +"-"+ this.deliveryHour
+    console.log("DATE TO SEND : ", this.dateAndHour.toString())
+    this.newDateEvent.emit(this.dateAndHour.toString());
   }
 
 
