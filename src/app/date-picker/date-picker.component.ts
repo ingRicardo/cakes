@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
  
 import * as _moment from 'moment';
@@ -14,16 +14,17 @@ const moment = _rollupMoment || _moment;
 })
 export class DatePickerComponent {
 
-
+  @Input() min: any;
   @Output() newDateEvent = new EventEmitter<string>();
 
   cakeDate !: Date
   seleDate : any
   date = new FormControl(moment());
   deliveryHour = "11:00 AM"
+  yesterday = new Date();
 
   constructor(){
-    
+    this.yesterday.setDate(this.yesterday.getDate() - 0);
   }
 
   dateAndHour !: String

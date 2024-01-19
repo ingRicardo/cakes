@@ -1,6 +1,7 @@
 <mat-form-field>
     <mat-label>Choose delivery date</mat-label>
-    <input matInput [matDatepicker]="dp" [formControl]="date"  [(ngModel)]="cakeDate" (dateChange)="onChangeEvent( dateinput.value)" #dateinput>
+    <input matInput [matDatepicker]="dp" [formControl]="date"  [(ngModel)]="cakeDate" (dateChange)="onChangeEvent( dateinput.value)"
+     #dateinput  [min]="yesterday" >
     <mat-hint>MMMM DD, YYYY</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
     <mat-datepicker #dp></mat-datepicker>

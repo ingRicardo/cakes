@@ -55,6 +55,9 @@ export class CakeStepperComponent {
   }
 
   ingredients = new FormControl('');
+  size = new FormControl('');
+  shape = new FormControl('');
+  eventc = new FormControl('');
   typeOfCake = 'fondant';
 
   ingredientsList: string[] = ['Cheese', 'Strawberry', 'Banana', 'fruits', 'Marmalade', 'Chocolate'];
@@ -101,7 +104,7 @@ export class CakeStepperComponent {
   insertValues(){
    // console.log("first values ", this.currentNameValue , "selected ingredients ", this.currentIngredientValues)
 
-    if (this.currentNameValue && this.validateEmail(this.currentEmailValue)
+    if (this.currentNameValue && this.currentEmailValue && this.validateEmail(this.currentEmailValue)
        && this.currentIngredientValues && this.typeOfCake && this.cakeSize && this.cakeEvent
       && this.cakeShape && this.currentAddressValue && this.desingOnCake &&  this.textOnCake
       && this.stringDate && this.currentCellNumberValue){
@@ -151,8 +154,46 @@ export class CakeStepperComponent {
       "cellphone -> ",this.currentCellNumberValue , "\n",
       "uniqueId -> ",this.uniqueId , "\n",
       )
-      if (!this.validateEmail(this.currentEmailValue)) this.error="PLEASE GO BACK AND CHECK YOUR E-MAIL" 
-      else  this.error=""
+      this.error=""
+      if (this.currentEmailValue)
+        if (!this.validateEmail(this.currentEmailValue)) this.error="PLEASE GO BACK AND CHECK YOUR E-MAIL" 
+        else  this.error=""
+      else
+        this.error="PLEASE GO BACK AND CHECK YOUR E-MAIL" 
+
+      if (this.currentNameValue == undefined)
+        this.error="PLEASE GO BACK AND CHECK YOUR NAME" 
+
+      if (this.currentIngredientValues == undefined)
+        this.error="PLEASE GO BACK AND CHECK YOUR INGREDIENTS" 
+      
+      if (this.typeOfCake == undefined)
+        this.error="PLEASE GO BACK AND CHECK YOUR CAKE'S TYPE" 
+
+      if (this.cakeEvent == undefined)
+        this.error="PLEASE GO BACK AND CHECK YOUR CAKE'S EVENT"   
+      
+      if (this.cakeShape == undefined)
+        this.error="PLEASE GO BACK AND CHECK YOUR  CAKE'S SHAPE" 
+      
+      if (this.currentAddressValue == undefined)
+        this.error="PLEASE GO BACK AND CHECK YOUR ADDRESS" 
+      
+      if (this.desingOnCake == undefined)
+        this.error="PLEASE GO BACK AND CHECK YOUR CAKE'S DESIGN" 
+
+      if (this.cakeSize == undefined)
+        this.error="PLEASE GO BACK AND CHECK THE SIZE OF YOUR CAKE" 
+
+      if (this.textOnCake == undefined)
+        this.error="PLEASE GO BACK AND CHECK THE TEXT IN YOUR CAKE" 
+
+      if (this.stringDate == undefined)
+        this.error="PLEASE GO BACK AND CHECK YOUR DELIVERY'S DATE" 
+      
+      if (this.currentCellNumberValue == undefined)
+        this.error="PLEASE GO BACK AND CHECK YOUR CELLPHONE NUMBER" 
+
     }
       /*
     this.fileJson = new File([JSON.stringify(this.data)], "file.json", {type: "application/json'"}); 
