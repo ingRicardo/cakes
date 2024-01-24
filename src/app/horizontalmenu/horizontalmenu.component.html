@@ -1,0 +1,14 @@
+ 
+<button mat-button [matMenuTriggerFor]="aboveMenu">Cakes</button>
+<mat-menu #aboveMenu="matMenu" yPosition="above">
+  <button mat-menu-item routerLink="classic">Classic</button>
+  <button mat-menu-item routerLink="create">Create your cake</button>
+  <button mat-menu-item routerLink="">Home</button>
+</mat-menu>
+
+<button mat-button [matMenuTriggerFor]="belowMenu">Menu</button>
+<mat-menu #belowMenu="matMenu" yPosition="below">
+  <button mat-menu-item routerLink="comment">Leave a comment</button>
+  <button mat-menu-item routerLink="mostwanted">Most wanted</button>
+</mat-menu>
+

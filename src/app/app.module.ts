@@ -39,6 +39,7 @@ import { MaincakesComponent } from './maincakes/maincakes.component';
 import { CommentsectionComponent } from './commentsection/commentsection.component';
 import { MostWantedComponent } from './most-wanted/most-wanted.component';
 import { ContactComponent } from './contact/contact.component';
+import { HorizontalmenuComponent } from './horizontalmenu/horizontalmenu.component';
  
 //import { InsertjsonService } from './insertjson.service'
 // Depending on whether rollup is used, moment needs to be imported differently.
@@ -77,7 +78,8 @@ export const MY_FORMATS = {
     MaincakesComponent,
     CommentsectionComponent,
     MostWantedComponent,
-    ContactComponent
+    ContactComponent,
+    HorizontalmenuComponent
   ],
   imports: [
     BrowserModule,
