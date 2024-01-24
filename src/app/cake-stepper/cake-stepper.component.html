@@ -8,7 +8,7 @@
   }
 
   <p style="text-align: right;">
-    <span class="fontclass">Create your cake</span>
+    <span class="fontclass">{{'classicLabel.create' | translate}} </span>
    <!-- <button type="button" mat-raised-button color="warn" (click)="closeStepsEventFunc(false)"><span>X</span></button> -->
 </p>
 
@@ -16,14 +16,14 @@
   <mat-stepper
     class="example-stepper"
     [orientation]="(stepperOrientation | async)!">
-    <mat-step [stepControl]="firstFormGroup" label="Fill out Ingredients">
+    <mat-step [stepControl]="firstFormGroup" label="{{'classicLabel.fillingredients' | translate}}">
 
       <form [formGroup]="firstFormGroup">
         <div style="text-align: left;">
 
 
         <mat-form-field style="margin: 5px;">
-          <mat-label>Ingredients</mat-label>
+          <mat-label>{{'classicLabel.ingredients' | translate}}</mat-label>
           <mat-select [formControl]="ingredients" multiple required [(ngModel)]="currentIngredientValues">
             <mat-select-trigger>
               {{ingredients.value?.[0] || ''}}
@@ -40,36 +40,36 @@
         </mat-form-field>
 
         <mat-form-field style="margin: 5px;">
-          <mat-label>Select type of cake</mat-label>
+          <mat-label>{{'classicLabel.typeofcake' | translate}}</mat-label>
           <mat-select [(value)]="typeOfCake">
             <mat-option>None</mat-option>
-            <mat-option value="classic">Classic</mat-option>
-            <mat-option value="fondant">Fondant</mat-option>
-            <mat-option value="mixed">Mixed</mat-option>
-            <mat-option value="3milks">3 Milks</mat-option>
+            <mat-option value="{{'classicLabel.classics' | translate}}">{{'classicLabel.classics' | translate}} </mat-option>
+            <mat-option value="{{'classicLabel.fondant' | translate}}">{{'classicLabel.fondant' | translate}}</mat-option>
+            <mat-option value="{{'classicLabel.mixed' | translate}}">{{'classicLabel.mixed' | translate}}</mat-option>
+            <mat-option value="{{'classicLabel.3milks' | translate}}">{{'classicLabel.3milks' | translate}}</mat-option>
           </mat-select>
         </mat-form-field>
         
 
         <mat-form-field style="margin: 5px;" >
-          <mat-label>Cake size</mat-label>
+          <mat-label>{{'classicLabel.cakesize' | translate}}</mat-label>
           <mat-select [formControl]="size" required   [(value)]="cakeSize">
-            <mat-option value="small">Small</mat-option>
-            <mat-option value="double" disabled>Double (disabled)</mat-option>
-            <mat-option value="medium">Medium</mat-option>
-            <mat-option value="large">Large</mat-option>
+            <mat-option value="{{'classicLabel.small' | translate}}">{{'classicLabel.small' | translate}}</mat-option>
+            <mat-option value="{{'classicLabel.double' | translate}}" disabled>{{'classicLabel.double' | translate}} (disabled)</mat-option>
+            <mat-option value="{{'classicLabel.medium' | translate}}">{{'classicLabel.medium' | translate}}</mat-option>
+            <mat-option value="{{'classicLabel.large' | translate}}">{{'classicLabel.large' | translate}}</mat-option>
           </mat-select>
         </mat-form-field>
 
 
-        <mat-form-field style="margin: 5px;" >
-          <mat-label>Cake Event</mat-label>
+        <mat-form-field style="margin: 5px;" > 
+          <mat-label>{{'classicLabel.cakeevent' | translate}}</mat-label>
           <mat-select  [formControl]="eventc" required [(value)]="cakeEvent">
-            <mat-option value="birthday">Birthday</mat-option>
-            <mat-option value="double" disabled>Double (disabled)</mat-option>
-            <mat-option value="halloween">Halloween</mat-option>
-            <mat-option value="christmas">Christmas</mat-option>
-            <mat-option value="weeding">Weeding</mat-option>
+            <mat-option value="{{'classicLabel.birthday' | translate}}">{{'classicLabel.birthday' | translate}}  </mat-option>
+            <mat-option value="{{'classicLabel.double' | translate}}" disabled>{{'classicLabel.double' | translate}} (disabled)</mat-option>
+            <mat-option value="{{'classicLabel.halloween' | translate}}">{{'classicLabel.halloween' | translate}}</mat-option>
+            <mat-option value="{{'classicLabel.christmas' | translate}}">{{'classicLabel.christmas' | translate}}</mat-option>
+            <mat-option value="{{'classicLabel.weeding' | translate}}">{{'classicLabel.weeding' | translate}}</mat-option>
 
           </mat-select>
 
@@ -77,13 +77,13 @@
         </mat-form-field>
 
         <mat-form-field style="margin: 5px;" >
-          <mat-label>Cake Shape</mat-label>
+          <mat-label>{{'classicLabel.cakeshape' | translate}}</mat-label>
           <mat-select [formControl]="shape" required [(value)]="cakeShape">
-            <mat-option value="circular">Circular</mat-option>
-            <mat-option value="double" disabled>Double (disabled)</mat-option>
-            <mat-option value="rectangular">Rectangular</mat-option>
-            <mat-option value="doubleCircular">Double Circular</mat-option>
-            <mat-option value="doubleRectangular">Double Rectangular</mat-option>
+            <mat-option value="{{'classicLabel.circular' | translate}}">{{'classicLabel.circular' | translate}}</mat-option>
+            <mat-option value="{{'classicLabel.double' | translate}}" disabled>{{'classicLabel.double' | translate}} (disabled)</mat-option>
+            <mat-option value="{{'classicLabel.rectangular' | translate}}">{{'classicLabel.rectangular' | translate}}</mat-option>
+            <mat-option value="{{'classicLabel.doubleCircular' | translate}}">{{'classicLabel.doubleCircular' | translate}}</mat-option>
+            <mat-option value="{{'classicLabel.doubleRectangular' | translate}}">{{'classicLabel.doubleRectangular' | translate}}</mat-option>
 
           </mat-select>
 
@@ -91,14 +91,14 @@
         </mat-form-field>
 
         <mat-form-field class="example-full-width" style="margin: 5px;">
-          <mat-label>Design/Draw</mat-label>
+          <mat-label> {{'classicLabel.design' | translate}}</mat-label>
           <input matInput placeholder="Ex. Wonderwoman" value="Spiderman" formControlName="firstCtrl" [(ngModel)]="desingOnCake">
         </mat-form-field>
 
 
         <mat-form-field class="example-full-width" style="margin: 5px;">
-          <mat-label>Text on top of the cake</mat-label>
-          <input matInput placeholder="Ex. happy birthday Melissa" value="happy birthday Melissa"  formControlName="firstCtrl" [(ngModel)]="textOnCake">
+          <mat-label>{{'classicLabel.textontop' | translate}}</mat-label>
+          <input matInput placeholder="Ex. happy birthday Lola" value="happy birthday lola"  formControlName="firstCtrl" [(ngModel)]="textOnCake">
         </mat-form-field>
 
       <!--  <p>You selected: {{typeOfCake}}</p> -->
@@ -108,14 +108,14 @@
         <div>  </div>
 
         <div>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperNext> {{'classicLabel.next' | translate}}   </button>
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="secondFormGroup" label="Fill out address">
+    <mat-step [stepControl]="secondFormGroup" label="{{'classicLabel.filladdress' | translate}}"  >
       <form [formGroup]="secondFormGroup">
         <mat-form-field>
-          <mat-label>Address</mat-label>
+          <mat-label> {{'classicLabel.address' | translate}}  </mat-label>
           <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
                  required [(ngModel)]="currentAddressValue">
         </mat-form-field>
@@ -123,17 +123,17 @@
         <app-date-picker  (newDateEvent)="getDateString($any($event))"  style="margin: 5px;"></app-date-picker>
 
         <mat-form-field class="example-full-width"  style="margin: 5px;">
-          <mat-label>Leave a comment</mat-label>
+          <mat-label> {{'classicLabel.leavecomment' | translate}} </mat-label>
           <textarea matInput placeholder="Ex. It makes me feel..."  formControlName="secondCtrl"  [(ngModel)]="notesArea" ></textarea>
         </mat-form-field>
 
         <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious> {{'classicLabel.back' | translate}} </button>
+          <button mat-button matStepperNext> {{'classicLabel.next' | translate}}   </button>
         </div>
       </form>
     </mat-step>
-    <mat-step [stepControl]="thirdFormGroup" label="Fill out your name">
+    <mat-step [stepControl]="thirdFormGroup" label="{{'classicLabel.fillname' | translate}}">
       <form [formGroup]="thirdFormGroup">
        <!-- <mat-form-field>
           <mat-label>Phone number</mat-label>
@@ -141,11 +141,11 @@
         </mat-form-field>
       -->
         <mat-form-field style="margin: 5px;">
-          <mat-label>Name</mat-label>
+          <mat-label>{{'classicLabel.name' | translate}}</mat-label>
           <input matInput placeholder="Last name, First name" formControlName="thirdCtrl" required  [(ngModel)]="currentNameValue" (keydow)="validateString($event)">
         </mat-form-field>
         <mat-form-field style="margin: 5px;">
-          <mat-label>Email</mat-label>
+          <mat-label>{{'classicLabel.email' | translate}}</mat-label>
           <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com" [(ngModel)]="currentEmailValue" >
           @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
             <mat-error>Please enter a valid email address</mat-error>
@@ -156,15 +156,15 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Cellphone</mat-label>
+          <mat-label>{{'classicLabel.cellphone' | translate}}   </mat-label>
           <span matPrefix>+52 &nbsp;</span>
           <input matInput type="tel"  placeholder="Ex. 664 1268391" formControlName="thirdCtrl" required [(ngModel)]="currentCellNumberValue">
           <mat-icon matSuffix>mode_edit</mat-icon>
         </mat-form-field>
 
         <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious> {{'classicLabel.back' | translate}}</button>
+          <button mat-button matStepperNext>{{'classicLabel.next' | translate}}</button>
         </div>
       </form>
     </mat-step>

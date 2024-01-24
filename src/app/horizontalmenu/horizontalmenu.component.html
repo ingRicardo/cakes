@@ -1,14 +1,16 @@
- 
-<button mat-button [matMenuTriggerFor]="aboveMenu">Cakes</button>
+
+<button mat-button [matMenuTriggerFor]="aboveMenu">{{'MenuLabel.cakes' | translate}}</button>
 <mat-menu #aboveMenu="matMenu" yPosition="above">
-  <button mat-menu-item routerLink="classic">Classic</button>
-  <button mat-menu-item routerLink="create">Create your cake</button>
-  <button mat-menu-item routerLink="">Home</button>
+  <button mat-menu-item routerLink="classic">{{'MenuLabel.classic' | translate}}</button>
+  <button mat-menu-item routerLink="create">{{'MenuLabel.createcake' | translate}}</button>
+ 
 </mat-menu>
 
 <button mat-button [matMenuTriggerFor]="belowMenu">Menu</button>
 <mat-menu #belowMenu="matMenu" yPosition="below">
-  <button mat-menu-item routerLink="comment">Leave a comment</button>
-  <button mat-menu-item routerLink="mostwanted">Most wanted</button>
+  <button mat-menu-item routerLink="comment">{{'MenuLabel.leavecomment' | translate}}</button>
+  <button mat-menu-item routerLink="mostwanted"> {{'MenuLabel.mostwanted' | translate}}</button>
+  <button mat-menu-item routerLink=""> {{'MenuLabel.home' | translate}}</button>
+  <button mat-menu-item routerLink="changelan">{{'MenuLabel.changelan' | translate}}</button>
 </mat-menu>
 

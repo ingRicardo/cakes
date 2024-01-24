@@ -6,14 +6,15 @@ import { ClassicComponent } from './classic/classic.component';
 import { CakeStepperComponent } from './cake-stepper/cake-stepper.component';
 import { CommentsectionComponent } from './commentsection/commentsection.component';
 import { MostWantedComponent } from './most-wanted/most-wanted.component';
-import { AppComponent } from './app.component';
+import { ChangelangComponent } from './changelang/changelang.component';
 const routes: Routes = [
  // { path: '', component: AppComponent },
   { path: 'restapis', component: RestapisComponent },
   { path: 'classic', component: ClassicComponent},
   { path: 'create', component: CakeStepperComponent},
   { path: 'comment', component: CommentsectionComponent},
-  { path: 'mostwanted', component: MostWantedComponent}
+  { path: 'mostwanted', component: MostWantedComponent},
+  {path: 'changelan', component:ChangelangComponent}
 ];
 
 @NgModule({

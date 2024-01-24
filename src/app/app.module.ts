@@ -23,7 +23,7 @@ import { ClassicComponent } from './classic/classic.component';
 
 import {MatTabsModule} from '@angular/material/tabs';
 import { ClassicTypeCakesComponent } from './classic-type-cakes/classic-type-cakes.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {MatCardModule} from '@angular/material/card';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ImgCarrouselComponent } from './img-carrousel/img-carrousel.component';
@@ -41,12 +41,18 @@ import { MostWantedComponent } from './most-wanted/most-wanted.component';
 import { ContactComponent } from './contact/contact.component';
 import { HorizontalmenuComponent } from './horizontalmenu/horizontalmenu.component';
  
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ChangelangComponent } from './changelang/changelang.component';
+
 //import { InsertjsonService } from './insertjson.service'
 // Depending on whether rollup is used, moment needs to be imported differently.
 // Since Moment.js doesn't have a default export, we normally need to import using the `* as`
 // syntax. However, rollup creates a synthetic default module and we thus need to import it using
 // the `default as` syntax.
-
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 // See the Moment.js docs for the meaning of these formats:
 // https://momentjs.com/docs/#/displaying/format/
@@ -79,7 +85,8 @@ export const MY_FORMATS = {
     CommentsectionComponent,
     MostWantedComponent,
     ContactComponent,
-    HorizontalmenuComponent
+    HorizontalmenuComponent,
+    ChangelangComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +108,14 @@ export const MY_FORMATS = {
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+      provide: TranslateLoader,
+      useFactory: HttpLoaderFactory,
+      deps: [HttpClient]
+      }
+    })
     
   ],
   schemas: [
