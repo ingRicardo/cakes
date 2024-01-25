@@ -50,5 +50,6 @@
     "classicLabel.fillname" : "Fill out your name",
     "classicLabel.name" : "Name",
     "classicLabel.email" : "Email",
-    "classicLabel.cellphone" : "Cellphone"
+    "classicLabel.cellphone" : "Cellphone",
+    "classicLabel.wedding" : "Weddings"
 }

@@ -50,5 +50,6 @@
     "classicLabel.fillname" : "Registra tu nombre",
     "classicLabel.name" : "Nombre",
     "classicLabel.email" : "Correo Electronico",
-    "classicLabel.cellphone" : "Celular"
+    "classicLabel.cellphone" : "Celular",
+    "classicLabel.wedding" : "Bodas"
 }

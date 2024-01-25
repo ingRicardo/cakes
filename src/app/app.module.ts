@@ -46,6 +46,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ChangelangComponent } from './changelang/changelang.component';
 import { ImgCarrouselHalloweenComponent } from './img-carrousel-halloween/img-carrousel-halloween.component';
 import { ImgCarrouselChristmasComponent } from './img-carrousel-christmas/img-carrousel-christmas.component';
+import { ImgCarrouselWeddingsComponent } from './img-carrousel-weddings/img-carrousel-weddings.component';
 
 //import { InsertjsonService } from './insertjson.service'
 // Depending on whether rollup is used, moment needs to be imported differently.
@@ -90,7 +91,8 @@ export const MY_FORMATS = {
     HorizontalmenuComponent,
     ChangelangComponent,
     ImgCarrouselHalloweenComponent,
-    ImgCarrouselChristmasComponent
+    ImgCarrouselChristmasComponent,
+    ImgCarrouselWeddingsComponent
   ],
   imports: [
     BrowserModule,
