@@ -6,9 +6,14 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { InsertjsonService } from '../insertjson.service';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-import { MatChipInputEvent } from '@angular/material/chips';
+import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
+
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
 
 
+export interface Ingredient {
+  name: string;
+}
 
 @Component({
   selector: 'app-cake-stepper',
@@ -18,8 +23,55 @@ import { MatChipInputEvent } from '@angular/material/chips';
 export class CakeStepperComponent {
 
 
+  addOnBlur = true;
+  readonly separatorKeysCodes = [ENTER, COMMA] as const;
+  ingre: Ingredient[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];
+
+  announcer = inject(LiveAnnouncer);
+
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+
+    // Add our fruit
+    if (value) {
+      this.ingre.push({name: value});
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+  }
+
+  remove(fruit: Ingredient): void {
+    const index = this.ingre.indexOf(fruit);
+
+    if (index >= 0) {
+      this.ingre.splice(index, 1);
+
+      this.announcer.announce(`Removed ${fruit}`);
+    }
+  }
+
+  edit(fruit: Ingredient, event: MatChipEditedEvent) {
+    const value = event.value.trim();
+
+    // Remove fruit if it no longer has a name
+    if (!value) {
+      this.remove(fruit);
+      return;
+    }
+
+    // Edit existing fruit
+    const index = this.ingre.indexOf(fruit);
+    if (index >= 0) {
+      this.ingre[index].name = value;
+    }
+  }
+
+///////
+formControlIngredients = this.ingre
+
+  /*
   keywords = ['cheese', 'strawberry', 'banana', 'marmalade', 'chocolate'];
-  formControlIngredients = new FormControl(['chocolate']);
 
   announcer = inject(LiveAnnouncer);
 
@@ -35,15 +87,15 @@ export class CakeStepperComponent {
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
 
-    // Add our keyword
+   
     if (value) {
       this.keywords.push(value);
     }
 
-    // Clear the input value
+    
     event.chipInput!.clear();
   }
-
+  */
 
   validateString(event: any) {
      
@@ -129,6 +181,17 @@ export class CakeStepperComponent {
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     );
   };
+  resultIngredients : any
+
+  ngAfterViewChecked() {
+    // ...
+
+    this.resultIngredients = this.formControlIngredients.map(a => a.name);
+   
+
+  }
+
+
 
   insertValues(){
    // console.log("first values ", this.currentNameValue , "selected ingredients ", this.currentIngredientValues)
@@ -140,12 +203,20 @@ export class CakeStepperComponent {
 
         this.error=""
         
+
+        //let result = this.formControlIngredients.map(({a}) => foo)
+
+         this.resultIngredients = this.formControlIngredients.map(a => a.name);
+     /*   for (var i =0; i <  this.resultIngredients.length; i++){
+          console.log(this.resultIngredients[i])
+        }
+    */
         this.uniqueId = Math.random().toString(36).substr(2, 9);
         console.log("email => ",  this.currentEmailValue)
         this.data = {
           name: this.currentNameValue, 
           email: this.currentEmailValue,
-          ingredients: this.formControlIngredients.value,
+          ingredients:  this.resultIngredients,
           type:this.typeOfCake,
           size: this.cakeSize , 
           event: this.cakeEvent,
@@ -167,10 +238,15 @@ export class CakeStepperComponent {
         console.log(" JSON GENERATED  => ", this.cakesInsertRes)
       })
     }else {
+      this.resultIngredients = this.formControlIngredients.map(a => a.name);
+     /* for (var i =0; i <  this.resultIngredients.length; i++){
+        console.log(this.resultIngredients[i])
+      }
+      */
       console.log("JSON NOT GENERATED")
       console.log("email => ",  this.currentEmailValue)
       console.log( " name -> ", this.currentNameValue , "\n", 
-      "ingredients -> ", this.formControlIngredients.value , "\n", 
+      "ingredients -> ", this.resultIngredients , "\n", 
       "type -> ",this.typeOfCake , "\n",
       "size -> ",this.cakeSize , "\n",
       "event -> ",this.cakeEvent , "\n",

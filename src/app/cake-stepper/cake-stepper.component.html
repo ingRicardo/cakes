@@ -41,7 +41,7 @@
 -->
         <mat-form-field  class="example-form-field" style="margin: 5px;">
           <mat-label>{{'classicLabel.ingredients' | translate}}</mat-label>
-          <mat-chip-grid #chipGrid aria-label="Enter keywords"  [formControl]="formControlIngredients" >
+   <!--       <mat-chip-grid #chipGrid aria-label="Enter keywords"  [formControl]="formControlIngredients" >
             @for (keyword of keywords; track keyword) {
               <mat-chip-row (removed)="removeKeyword(keyword)">
                 {{keyword}}
@@ -54,11 +54,32 @@
           <input placeholder="{{'classicLabel.newingre' | translate}}"
                   [matChipInputFor]="chipGrid" required
                   (matChipInputTokenEnd)="add($event)"/>
-          
+    -->
+          <mat-chip-grid #chipGrid aria-label="Enter fruits">
+            @for (ing of ingre; track ing) {
+              <mat-chip-row
+                (removed)="remove(ing)"
+                [editable]="true"
+                (edited)="edit(ing, $event)"
+                [aria-description]="'press enter to edit ' + ing.name">
+                {{ing.name}}
+                <button matChipRemove [attr.aria-label]="'remove ' + ing.name">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            }
+            <input placeholder="{{'classicLabel.newingre' | translate}}..."
+                    [matChipInputFor]="chipGrid"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="add($event)"/>
+          </mat-chip-grid>
+
+
         </mat-form-field>
 
         <p>
-          <strong>{{'classicLabel.ingredients' | translate}}:</strong> {{formControlIngredients.value}}
+          <strong>{{'classicLabel.ingredients' | translate}}:</strong> {{ resultIngredients}}
         </p>
         <mat-form-field style="margin: 5px;">
           <mat-label>{{'classicLabel.typeofcake' | translate}}</mat-label>
@@ -217,9 +238,9 @@
           <span> {{currentEmailValue}}</span>
         </p>
         
-        <p *ngIf="formControlIngredients"> 
+        <p *ngIf="resultIngredients"> 
           <label class="labelclass">{{'classicLabel.ingredients' | translate}}: </label>
-          {{formControlIngredients.value}}
+          {{resultIngredients}}
         </p>
 
         <p *ngIf="typeOfCake">
