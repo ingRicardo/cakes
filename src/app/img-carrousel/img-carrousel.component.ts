@@ -9,13 +9,18 @@ import { InsertjsonService } from '../insertjson.service';
 export class ImgCarrouselComponent {
   
   cakesData :any
+  
   constructor( private insertjsonService: InsertjsonService) {}
 
   ngOnInit() {
 
     this.insertjsonService.getCakesDataJson().subscribe(res => {
-      this.cakesData = res[0]['jsoncakesdata'];
-      console.log("FROM JSON -> ", this.cakesData)
+      this.cakesData = res[0]['jsoncakesdata'].filter((item: { event: any; }) => item.event === 'birthday');
+      console.log("filtering ==> ",this.cakesData);
+      
     });
+
+    
+
   }
 }

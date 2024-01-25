@@ -35,8 +35,16 @@
     </table>
     -->
     </mat-tab>
-    <mat-tab label="Halloween">{{'classicLabel.halloween' | translate}}  </mat-tab>
-    <mat-tab label="Christmas">{{'classicLabel.christmas' | translate}}</mat-tab>
+    <mat-tab label="Halloween">{{'classicLabel.halloween' | translate}} 
+      <div style="width: 100%; margin-bottom: 10px; text-align: center; ">
+        <app-img-carrousel-halloween></app-img-carrousel-halloween>
+      </div>
+    </mat-tab>
+    <mat-tab label="Christmas">{{'classicLabel.christmas' | translate}}
+      <div style="width: 100%; margin-bottom: 10px; text-align: center; ">
+        <app-img-carrousel-christmas></app-img-carrousel-christmas>
+      </div>
+    </mat-tab>
     <mat-tab label="Fourth" disabled>Content 4</mat-tab>
   </mat-tab-group>
   

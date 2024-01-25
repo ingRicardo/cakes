@@ -1,0 +1,33 @@
+<div class="box">
+    <div>
+    <carousel [isAnimated]="true"   [interval]="3000" >
+
+        <slide *ngFor="let cake of cakeData" style="width: 100%; flex-direction: column;">
+            <!-- <img mat-card-image [src]= "cake.image"  alt="first slide" style="display: block; width: 100%;"> -->
+
+            <mat-card class="example-card" style="background-color: #3f51b5; color: whitesmoke;" >
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{cake.name}}</mat-card-title>
+                    <mat-card-subtitle style="color: whitesmoke;">{{cake.flavor}}</mat-card-subtitle>
+                </mat-card-header>
+                <div style="text-align: center;">
+                    <img mat-card-image [src]="cake.image" alt="Photo of a Shiba Inu" width="100%" >
+                </div>
+                <mat-card-content>
+                    <p>{{cake.size}}</p>
+                    <p>
+                        {{cake.description}}
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <p style="margin-left: 10px;"> </p>
+                </mat-card-actions>
+            </mat-card>
+
+        </slide>
+ 
+    </carousel>
+    </div>
+</div>
+
