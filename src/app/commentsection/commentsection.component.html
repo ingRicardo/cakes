@@ -1,19 +1,19 @@
 
 
 <form class="example-form">
-    <h2>Let us know your Opinion</h2>
+    <h2> {{'commentLabel.opinion' | translate}}</h2>
     <mat-form-field class="example-full-width">
-      <mat-label>Your Name</mat-label>
+      <mat-label> {{'commentLabel.name' | translate}}</mat-label>
       <input matInput placeholder="Ex. Riky" name="inputname" [(ngModel)]="userName" >
     </mat-form-field>
   
     <mat-form-field class="example-full-width">
-      <mat-label>Leave a comment</mat-label>
+      <mat-label> {{'commentLabel.comment' | translate}}</mat-label>
       <textarea matInput placeholder="Ex. It makes me feel..."  name="commentarea" [(ngModel)]="commentArea"></textarea>
     </mat-form-field>
   </form>
   <div style="text-align: right;">
-    <button style="margin: 5px;" mat-raised-button color="primary" (click)="insertComment()">Post</button>
+    <button style="margin: 5px;" mat-raised-button color="primary" (click)="insertComment()"> {{'commentLabel.post' | translate}}</button>
   </div>
   
 

@@ -51,5 +51,16 @@
     "classicLabel.name" : "Nombre",
     "classicLabel.email" : "Correo Electronico",
     "classicLabel.cellphone" : "Celular",
-    "classicLabel.wedding" : "Bodas"
+    "classicLabel.wedding" : "Bodas",
+    "commentLabel.opinion" : "Dejanos tu opinion",
+    "commentLabel.name" : "Tu Nombre",
+    "commentLabel.comment" : "Deja tu comentario ",
+    "commentLabel.post" : "Postear",
+    "classicLabel.done" : "Finalizado",
+    "classicLabel.youredone" : "Haz terminado.",
+    "classicLabel.type" : "Tipo de pastel",
+    "classicLabel.deliverydate" : "Fecha de entrega",
+    "classicLabel.notes" : "Notas/Comentarios",
+    "classicLabel.confirm" : "confirmar",
+    "classicLabel.time" : "horario"
 }

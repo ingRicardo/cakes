@@ -51,5 +51,17 @@
     "classicLabel.name" : "Name",
     "classicLabel.email" : "Email",
     "classicLabel.cellphone" : "Cellphone",
-    "classicLabel.wedding" : "Weddings"
+    "classicLabel.wedding" : "Weddings",
+    "commentLabel.opinion" : "Let us know your Opinion",
+    "commentLabel.name" : "Your Name",
+    "commentLabel.comment" : "Leave a comment ",
+    "commentLabel.post" : "Post",
+    "classicLabel.done" : "Done",
+    "classicLabel.youredone" : "You are now done.",
+    "classicLabel.type" : "Cake Type",
+    "classicLabel.deliverydate" : "Delivery Date",
+    "classicLabel.notes" : "Notes/Comments",
+    "classicLabel.confirm" : "confirm",
+    "classicLabel.time" : "time"
+    
 }

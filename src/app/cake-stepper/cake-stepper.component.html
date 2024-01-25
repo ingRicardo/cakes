@@ -169,8 +169,8 @@
       </form>
     </mat-step>
     <mat-step>
-      <ng-template matStepLabel  >Done</ng-template>
-      <p>You are now done.  </p>
+      <ng-template matStepLabel  >{{'classicLabel.done' | translate}} </ng-template>
+      <p>  {{'classicLabel.youredone' | translate}}</p>
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title>Confirmation</mat-card-title>
@@ -186,77 +186,77 @@
 
     
   
-        <p *ngIf="currentNameValue">
-          <label class="labelclass">Name: </label>
+        <p *ngIf="currentNameValue"> 
+          <label class="labelclass">  {{'classicLabel.name' | translate}}: </label>
           <span> {{currentNameValue}}</span>
         </p>
         
-        <p *ngIf="currentEmailValue">
-          <label class="labelclass">Email: </label>
+        <p *ngIf="currentEmailValue">  
+          <label class="labelclass">{{'classicLabel.email' | translate}}: </label>
           <span> {{currentEmailValue}}</span>
         </p>
         
-        <p *ngIf="currentIngredientValues">
-          <label class="labelclass">Ingredients: </label>
+        <p *ngIf="currentIngredientValues"> 
+          <label class="labelclass">{{'classicLabel.ingredients' | translate}}: </label>
           {{currentIngredientValues}}
         </p>
 
         <p *ngIf="typeOfCake">
-          <label class="labelclass">Type: </label>
+          <label class="labelclass">{{'classicLabel.type' | translate}}: </label>
           {{typeOfCake}}
         </p>
     
 
-        <p *ngIf="cakeSize">
-          <label class="labelclass">Size: </label>
+        <p *ngIf="cakeSize"> 
+          <label class="labelclass">{{'classicLabel.cakesize' | translate}}: </label>
           {{cakeSize}}
         </p>
     
-        <p *ngIf="cakeShape">
-          <label class="labelclass">Shape: </label>
+        <p *ngIf="cakeShape"> 
+          <label class="labelclass">{{'classicLabel.cakeshape' | translate}}: </label>
           {{cakeShape}}
         </p>
 
-        <p *ngIf="cakeEvent">
-          <label class="labelclass">Event: </label>
+        <p *ngIf="cakeEvent"> 
+          <label class="labelclass">{{'classicLabel.cakeevent' | translate}}: </label>
           {{cakeEvent}}
         </p>
 
 
-        <p *ngIf="desingOnCake">
-          <label class="labelclass">Design/Draw: </label>
+        <p *ngIf="desingOnCake"> 
+          <label class="labelclass">{{'classicLabel.design' | translate}}: </label>
           {{desingOnCake}}
         </p>
 
-        <p *ngIf="textOnCake">
-          <label class="labelclass">Text On top: </label>
+        <p *ngIf="textOnCake"> 
+          <label class="labelclass">{{'classicLabel.textontop' | translate}}: </label>
           {{textOnCake}}
         </p>
 
 
         <p *ngIf="stringDate">
-          <label class="labelclass">Delivery Date: </label>
+          <label class="labelclass">{{'classicLabel.deliverydate' | translate}}: </label>
           {{stringDate}}
         </p>
 
-        <p *ngIf="notesArea">
-          <label class="labelclass">Notes/Comments: </label>
+        <p *ngIf="notesArea"> 
+          <label class="labelclass">{{'classicLabel.notes' | translate}} : </label>
           {{notesArea}}
         </p>
-    
-        <p *ngIf="currentAddressValue">
-          <label class="labelclass">Address: </label>
+     
+        <p *ngIf="currentAddressValue"> 
+          <label class="labelclass">{{'classicLabel.address' | translate}}: </label>
           {{currentAddressValue}}
         </p>
-        <p *ngIf="currentCellNumberValue">
-          <label class="labelclass">Cellphone: </label>
+        <p *ngIf="currentCellNumberValue"> 
+          <label class="labelclass">{{'classicLabel.cellphone' | translate}}: </label>
           {{currentCellNumberValue}}
         </p>
     
       </mat-card-content>
-      <mat-card-actions>
-        <button style="margin: 5px;" mat-raised-button color="primary" (click)="insertValues()">Accept</button>
-        <button mat-button matStepperPrevious>Back</button>
+      <mat-card-actions>  
+        <button style="margin: 5px;" mat-raised-button color="primary" (click)="insertValues()">{{'classicLabel.confirm' | translate}}</button>
+        <button mat-button matStepperPrevious>{{'classicLabel.back' | translate}}</button>
       </mat-card-actions>
     </mat-card>
 
