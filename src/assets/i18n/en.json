@@ -63,6 +63,7 @@
     "classicLabel.deliverydate" : "Delivery Date",
     "classicLabel.notes" : "Notes/Comments",
     "classicLabel.confirm" : "confirm",
-    "classicLabel.time" : "time"
+    "classicLabel.time" : "time",
+    "classicLabel.newingre" : "New Ingredient"
     
 }

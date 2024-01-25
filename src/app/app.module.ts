@@ -48,6 +48,12 @@ import { ImgCarrouselHalloweenComponent } from './img-carrousel-halloween/img-ca
 import { ImgCarrouselChristmasComponent } from './img-carrousel-christmas/img-carrousel-christmas.component';
 import { ImgCarrouselWeddingsComponent } from './img-carrousel-weddings/img-carrousel-weddings.component';
 
+
+//import {Component, inject} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
+import {LiveAnnouncer} from '@angular/cdk/a11y';
+
 //import { InsertjsonService } from './insertjson.service'
 // Depending on whether rollup is used, moment needs to be imported differently.
 // Since Moment.js doesn't have a default export, we normally need to import using the `* as`
@@ -121,7 +127,8 @@ export const MY_FORMATS = {
       useFactory: HttpLoaderFactory,
       deps: [HttpClient]
       }
-    })
+    }),
+     MatChipsModule, 
     
   ],
   schemas: [

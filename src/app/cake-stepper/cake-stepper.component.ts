@@ -1,10 +1,12 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule , FormControl} from '@angular/forms';
 import {BreakpointObserver} from '@angular/cdk/layout';
 import {StepperOrientation, MatStepperModule} from '@angular/material/stepper';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import { InsertjsonService } from '../insertjson.service';
+import { LiveAnnouncer } from '@angular/cdk/a11y';
+import { MatChipInputEvent } from '@angular/material/chips';
 
 
 
@@ -14,6 +16,33 @@ import { InsertjsonService } from '../insertjson.service';
   styleUrl: './cake-stepper.component.css'
 })
 export class CakeStepperComponent {
+
+
+  keywords = ['cheese', 'strawberry', 'banana', 'marmalade', 'chocolate'];
+  formControlIngredients = new FormControl(['chocolate']);
+
+  announcer = inject(LiveAnnouncer);
+
+  removeKeyword(keyword: string) {
+    const index = this.keywords.indexOf(keyword);
+    if (index >= 0) {
+      this.keywords.splice(index, 1);
+
+      this.announcer.announce(`removed ${keyword}`);
+    }
+  }
+
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+
+    // Add our keyword
+    if (value) {
+      this.keywords.push(value);
+    }
+
+    // Clear the input value
+    event.chipInput!.clear();
+  }
 
 
   validateString(event: any) {
@@ -26,7 +55,7 @@ export class CakeStepperComponent {
   
   @Output() closeStepsEvent = new EventEmitter<boolean>();
   currentNameValue: any;
-  currentIngredientValues: any;
+  //currentIngredientValues: any;
   cakeSize: any;
   cakeEvent: any;
   currentAddressValue: any;
@@ -54,17 +83,17 @@ export class CakeStepperComponent {
     this.closeStepsEvent.emit(value);
   }
 
-  ingredients = new FormControl('');
+  //ingredients = new FormControl('');
   size = new FormControl('');
   shape = new FormControl('');
   eventc = new FormControl('');
   typeOfCake = 'fondant';
 
-  ingredientsList: string[] = ['Cheese', 'Strawberry', 'Banana', 'fruits', 'Marmalade', 'Chocolate'];
+  //ingredientsList: string[] = ['Cheese', 'Strawberry', 'Banana', 'Marmalade', 'Chocolate'];
 
   fileJson !: any 
   data !: any 
-  selectedIngredients !: []
+  //selectedIngredients !: []
 
   disableSelect = new FormControl(false);
 
@@ -105,7 +134,7 @@ export class CakeStepperComponent {
    // console.log("first values ", this.currentNameValue , "selected ingredients ", this.currentIngredientValues)
 
     if (this.currentNameValue && this.currentEmailValue && this.validateEmail(this.currentEmailValue)
-       && this.currentIngredientValues && this.typeOfCake && this.cakeSize && this.cakeEvent
+       && this.formControlIngredients && this.typeOfCake && this.cakeSize && this.cakeEvent
       && this.cakeShape && this.currentAddressValue && this.desingOnCake &&  this.textOnCake
       && this.stringDate && this.currentCellNumberValue){
 
@@ -116,7 +145,7 @@ export class CakeStepperComponent {
         this.data = {
           name: this.currentNameValue, 
           email: this.currentEmailValue,
-          ingredients: this.currentIngredientValues,
+          ingredients: this.formControlIngredients.value,
           type:this.typeOfCake,
           size: this.cakeSize , 
           event: this.cakeEvent,
@@ -141,7 +170,7 @@ export class CakeStepperComponent {
       console.log("JSON NOT GENERATED")
       console.log("email => ",  this.currentEmailValue)
       console.log( " name -> ", this.currentNameValue , "\n", 
-      "ingredients -> ", this.currentIngredientValues , "\n", 
+      "ingredients -> ", this.formControlIngredients.value , "\n", 
       "type -> ",this.typeOfCake , "\n",
       "size -> ",this.cakeSize , "\n",
       "event -> ",this.cakeEvent , "\n",
@@ -164,7 +193,7 @@ export class CakeStepperComponent {
       if (this.currentNameValue == undefined)
         this.error="PLEASE GO BACK AND CHECK YOUR NAME" 
 
-      if (this.currentIngredientValues == undefined)
+      if (this.formControlIngredients == undefined)
         this.error="PLEASE GO BACK AND CHECK YOUR INGREDIENTS" 
       
       if (this.typeOfCake == undefined)

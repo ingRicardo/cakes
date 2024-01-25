@@ -63,5 +63,6 @@
     "classicLabel.deliverydate" : "Fecha de entrega",
     "classicLabel.notes" : "Notas/Comentarios",
     "classicLabel.confirm" : "confirmar",
-    "classicLabel.time" : "horario"
+    "classicLabel.time" : "horario",
+    "classicLabel.newingre" : "Ingrediente Nuevo"
 }

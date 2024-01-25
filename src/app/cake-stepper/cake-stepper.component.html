@@ -21,7 +21,7 @@
       <form [formGroup]="firstFormGroup">
         <div style="text-align: left;">
 
-
+<!--
         <mat-form-field style="margin: 5px;">
           <mat-label>{{'classicLabel.ingredients' | translate}}</mat-label>
           <mat-select [formControl]="ingredients" multiple required [(ngModel)]="currentIngredientValues">
@@ -38,7 +38,28 @@
         }
           </mat-select>
         </mat-form-field>
+-->
+        <mat-form-field  class="example-form-field" style="margin: 5px;">
+          <mat-label>{{'classicLabel.ingredients' | translate}}</mat-label>
+          <mat-chip-grid #chipGrid aria-label="Enter keywords"  [formControl]="formControlIngredients" >
+            @for (keyword of keywords; track keyword) {
+              <mat-chip-row (removed)="removeKeyword(keyword)">
+                {{keyword}}
+                <button matChipRemove aria-label="'remove ' + keyword">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
+            }
+          </mat-chip-grid>
+          <input placeholder="{{'classicLabel.newingre' | translate}}"
+                  [matChipInputFor]="chipGrid" required
+                  (matChipInputTokenEnd)="add($event)"/>
+          
+        </mat-form-field>
 
+        <p>
+          <strong>{{'classicLabel.ingredients' | translate}}:</strong> {{formControlIngredients.value}}
+        </p>
         <mat-form-field style="margin: 5px;">
           <mat-label>{{'classicLabel.typeofcake' | translate}}</mat-label>
           <mat-select [(value)]="typeOfCake">
@@ -196,9 +217,9 @@
           <span> {{currentEmailValue}}</span>
         </p>
         
-        <p *ngIf="currentIngredientValues"> 
+        <p *ngIf="formControlIngredients"> 
           <label class="labelclass">{{'classicLabel.ingredients' | translate}}: </label>
-          {{currentIngredientValues}}
+          {{formControlIngredients.value}}
         </p>
 
         <p *ngIf="typeOfCake">
