@@ -28,13 +28,13 @@ export class MostWantedComponent {
           console.log("restApiGetCakesInsert component TYPE : ", this.getCakesType )
        
           for (let i = 0; i < this.getCakesType.length; i++) {
-            if (this.getCakesType[i] == 'classic')
+            if (this.getCakesType[i] == 'classic' || this.getCakesType[i] == 'Classic' || this.getCakesType[i] == 'clasico' || this.getCakesType[i] == 'Clasico')
               this.classiccount = this.classiccount + 1
-            else if (this.getCakesType[i] == '3 MILKS' || this.getCakesType[i] == '3 Milks' || this.getCakesType[i] == '3milks')
+            else if (this.getCakesType[i] == '3 MILKS' || this.getCakesType[i] == '3 Milks' || this.getCakesType[i] == '3milks'  || this.getCakesType[i] == '3 leches')
               this.threemilkscount = this.threemilkscount + 1
-            else if(this.getCakesType[i] == 'fondant')  
+            else if(this.getCakesType[i] == 'fondant' || this.getCakesType[i] == 'Fondant')  
               this.fondantcount = this.fondantcount +  1
-            else if (this.getCakesType[i] == 'mixed')
+            else if (this.getCakesType[i] == 'Mixed' || this.getCakesType[i] == 'mixed' || this.getCakesType[i] == 'mixto' || this.getCakesType[i] == 'Mixto')
               this.mixedcount = this.mixedcount + 1
           }
           this.chart = new Chart('canvas', {
