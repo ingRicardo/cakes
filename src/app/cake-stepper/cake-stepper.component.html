@@ -72,7 +72,7 @@
                     [matChipInputFor]="chipGrid"
                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                     [matChipInputAddOnBlur]="addOnBlur"
-                    (matChipInputTokenEnd)="add($event)"/>
+                    (matChipInputTokenEnd)="add($event)" required/>
           </mat-chip-grid>
 
 
@@ -220,8 +220,8 @@
           <p *ngIf="uniqueId">
             <label>orderId: </label>
             <span style="color: red; font-size: larger; font-weight: bold;"> {{uniqueId}} </span> 
-          </p>
-          <p *ngIf="error"> <span style="color: red; font-size: larger; font-weight: bold;" >{{error}}</span></p>
+          </p> 
+          <p *ngIf="error"> <span style="color: red; font-size: larger; font-weight: bold;" >{{'classicLabel.error' | translate}}</span></p>
         </mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>

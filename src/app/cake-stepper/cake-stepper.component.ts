@@ -25,7 +25,7 @@ export class CakeStepperComponent {
 
   addOnBlur = true;
   readonly separatorKeysCodes = [ENTER, COMMA] as const;
-  ingre: Ingredient[] = [{name: 'Lemon'}, {name: 'Lime'}, {name: 'Apple'}];
+  ingre: Ingredient[] = [{name: 'Chocolate'}, {name: 'Banana'}];
 
   announcer = inject(LiveAnnouncer);
 
@@ -197,7 +197,7 @@ formControlIngredients = this.ingre
    // console.log("first values ", this.currentNameValue , "selected ingredients ", this.currentIngredientValues)
 
     if (this.currentNameValue && this.currentEmailValue && this.validateEmail(this.currentEmailValue)
-       && this.formControlIngredients && this.typeOfCake && this.cakeSize && this.cakeEvent
+       && this.formControlIngredients && this.formControlIngredients.length > 0 && this.typeOfCake && this.cakeSize && this.cakeEvent
       && this.cakeShape && this.currentAddressValue && this.desingOnCake &&  this.textOnCake
       && this.stringDate && this.currentCellNumberValue){
 
@@ -260,6 +260,10 @@ formControlIngredients = this.ingre
       "uniqueId -> ",this.uniqueId , "\n",
       )
       this.error=""
+
+      if (this.resultIngredients.length < 1)
+        this.error = "error in ingredients"
+
       if (this.currentEmailValue)
         if (!this.validateEmail(this.currentEmailValue)) this.error="PLEASE GO BACK AND CHECK YOUR E-MAIL" 
         else  this.error=""

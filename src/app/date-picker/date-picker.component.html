@@ -1,7 +1,7 @@
 <mat-form-field>
     <mat-label>{{'classicLabel.deliverydate' | translate}}</mat-label>
     <input matInput [matDatepicker]="dp" [formControl]="date"  [(ngModel)]="cakeDate" (dateChange)="onChangeEvent( dateinput.value)"
-     #dateinput  [min]="yesterday" >
+     #dateinput  [min]="yesterday" required>
     <mat-hint>MMMM DD, YYYY</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
     <mat-datepicker #dp></mat-datepicker>
@@ -11,6 +11,8 @@
 <mat-form-field style="margin: 5px;"> 
     <mat-label>{{'classicLabel.time' | translate}}</mat-label>
     <mat-select [(value)]="deliveryHour" #SelectedHour (selectionChange)='onHourSelected(SelectedHour.value)'>
+      <mat-option value="8:00 AM">8:00 AM</mat-option>
+      <mat-option value="9:00 AM">9:00 AM</mat-option>
       <mat-option value="10:00 AM">10:00 AM</mat-option>
       <mat-option value="11:00 AM">11:00 AM</mat-option>
       <mat-option value="12:00 PM">12:00 PM</mat-option>

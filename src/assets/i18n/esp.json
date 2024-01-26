@@ -64,5 +64,6 @@
     "classicLabel.notes" : "Notas/Comentarios",
     "classicLabel.confirm" : "confirmar",
     "classicLabel.time" : "horario",
-    "classicLabel.newingre" : "Ingrediente Nuevo"
+    "classicLabel.newingre" : "Ingrediente Nuevo",
+    "classicLabel.error" : "¡Por favor! regresa y verifica si completaste las opciones e intenta nuevamente"
 }
