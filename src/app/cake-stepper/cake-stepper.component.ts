@@ -9,7 +9,9 @@ import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 
 import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 
+import { OrderpopupComponent } from '../orderpopup/orderpopup.component';
 
 export interface Ingredient {
   name: string;
@@ -163,7 +165,7 @@ formControlIngredients = this.ingre
 
   constructor(
     private _formBuilder: FormBuilder,
-    breakpointObserver: BreakpointObserver, private insertjsonService: InsertjsonService
+    breakpointObserver: BreakpointObserver, private insertjsonService: InsertjsonService, public dialog: MatDialog
   ) {
     this.stepperOrientation = breakpointObserver
       .observe('(min-width: 800px)')
@@ -196,6 +198,9 @@ formControlIngredients = this.ingre
   insertValues(){
    // console.log("first values ", this.currentNameValue , "selected ingredients ", this.currentIngredientValues)
 
+
+
+
     if (this.currentNameValue && this.currentEmailValue && this.validateEmail(this.currentEmailValue)
        && this.formControlIngredients && this.formControlIngredients.length > 0 && this.typeOfCake && this.cakeSize && this.cakeEvent
       && this.cakeShape && this.currentAddressValue && this.desingOnCake &&  this.textOnCake
@@ -203,14 +208,8 @@ formControlIngredients = this.ingre
 
         this.error=""
         
-
-        //let result = this.formControlIngredients.map(({a}) => foo)
-
          this.resultIngredients = this.formControlIngredients.map(a => a.name);
-     /*   for (var i =0; i <  this.resultIngredients.length; i++){
-          console.log(this.resultIngredients[i])
-        }
-    */
+ 
         this.uniqueId = Math.random().toString(36).substr(2, 9);
         console.log("email => ",  this.currentEmailValue)
         this.data = {
@@ -231,18 +230,24 @@ formControlIngredients = this.ingre
         };
 
 
-
       this.insertjsonService.sendCakeJson(this.data, this.newDate, this.currentEmailValue).subscribe(
       res => {
         this.cakesInsertRes = res
         console.log(" JSON GENERATED  => ", this.cakesInsertRes)
       })
+
+
+
+    const dialogRef = this.dialog.open(OrderpopupComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+
+
     }else {
       this.resultIngredients = this.formControlIngredients.map(a => a.name);
-     /* for (var i =0; i <  this.resultIngredients.length; i++){
-        console.log(this.resultIngredients[i])
-      }
-      */
+ 
       console.log("JSON NOT GENERATED")
       console.log("email => ",  this.currentEmailValue)
       console.log( " name -> ", this.currentNameValue , "\n", 
@@ -304,18 +309,7 @@ formControlIngredients = this.ingre
         this.error="PLEASE GO BACK AND CHECK YOUR CELLPHONE NUMBER" 
 
     }
-      /*
-    this.fileJson = new File([JSON.stringify(this.data)], "file.json", {type: "application/json'"}); 
-    console.log("json --> ", this.data)
-    console.log("name ",this.data.name)
-    console.log("ingredients -> ")
-    this.orderId = this.data.uniqueId
-    this.selectedIngredients = this.data.ingredients
-    if (this.data.ingredients)
-    for( var i = 0; i < this.data.ingredients.length; i++){
-      console.log(  this.data.ingredients[i])
-    }
-    */
+  
   }
 
 

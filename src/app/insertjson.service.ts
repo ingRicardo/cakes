@@ -7,8 +7,11 @@ import { Observable, map } from 'rxjs';
 })
 export class InsertjsonService {
   cakesUrl: string = 'https://web-production-b7404.up.railway.app/postjsoncake/';
+  //cakesUrl: string = 'http://127.0.0.1:8000/postjsoncake/';
   getcakesUrl : string ='https://web-production-b7404.up.railway.app/cakesjson/'
   getcakesDataUrl : string = "https://web-production-b7404.up.railway.app/cakesdatajson/"
+
+
 
   constructor(private  httpClient:  HttpClient ) {}
   

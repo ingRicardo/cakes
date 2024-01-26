@@ -53,8 +53,8 @@ import { ImgCarrouselWeddingsComponent } from './img-carrousel-weddings/img-carr
 import {FormControl} from '@angular/forms';
 import {MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
-
- 
+import { OrderpopupComponent } from './orderpopup/orderpopup.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 //import { InsertjsonService } from './insertjson.service'
@@ -101,7 +101,8 @@ export const MY_FORMATS = {
     ChangelangComponent,
     ImgCarrouselHalloweenComponent,
     ImgCarrouselChristmasComponent,
-    ImgCarrouselWeddingsComponent
+    ImgCarrouselWeddingsComponent,
+    OrderpopupComponent
   ],
   imports: [
     BrowserModule,
@@ -131,7 +132,7 @@ export const MY_FORMATS = {
       deps: [HttpClient]
       }
     }),
-     MatChipsModule, 
+     MatChipsModule, MatDialogModule
     
   ],
   schemas: [

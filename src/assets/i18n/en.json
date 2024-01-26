@@ -65,6 +65,9 @@
     "classicLabel.confirm" : "confirm",
     "classicLabel.time" : "time",
     "classicLabel.newingre" : "New Ingredient",
-    "classicLabel.error" : "Please! go back and check if you filled out the options and try again"
+    "classicLabel.error" : "Please! go back and check if you filled out the options and try again",
+    "popupLabel.order": "Order",
+    "popupLabel.title" : "Your Order was generated",
+    "popupLabel.message": "Please check the Order in your email or contact us at this number"
     
 }
