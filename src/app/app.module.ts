@@ -55,6 +55,7 @@ import {MatChipInputEvent, MatChipsModule} from '@angular/material/chips';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import { OrderpopupComponent } from './orderpopup/orderpopup.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ListofordersComponent } from './listoforders/listoforders.component';
 
 
 //import { InsertjsonService } from './insertjson.service'
@@ -102,7 +103,8 @@ export const MY_FORMATS = {
     ImgCarrouselHalloweenComponent,
     ImgCarrouselChristmasComponent,
     ImgCarrouselWeddingsComponent,
-    OrderpopupComponent
+    OrderpopupComponent,
+    ListofordersComponent
   ],
   imports: [
     BrowserModule,

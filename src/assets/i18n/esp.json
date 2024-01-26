@@ -68,5 +68,10 @@
     "classicLabel.error" : "¡Por favor! regresa y verifica si completaste las opciones e intenta nuevamente",
     "popupLabel.order": "Orden",
     "popupLabel.title" : "Tu orden fue generada exitosamente!",
-    "popupLabel.message": "Por favor checa tu orden en tu correo electronico o contactanos a este numero"
+    "popupLabel.message": "Por favor checa tu orden en tu correo electronico o contactanos a este numero",
+    "findLabel.error" : "No Encontrado",
+    "findLabel.entercakesorder": "Ingresa la orden de tu pastel!",
+    "findLabel.search" : "Buscar",
+    "findLabel.searchmenu" : "Busca tu Orden"
+
 }

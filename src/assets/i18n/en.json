@@ -68,6 +68,10 @@
     "classicLabel.error" : "Please! go back and check if you filled out the options and try again",
     "popupLabel.order": "Order",
     "popupLabel.title" : "Your Order was generated",
-    "popupLabel.message": "Please check the Order in your email or contact us at this number"
+    "popupLabel.message": "Please check the Order in your email or contact us at this number",
+    "findLabel.error" : "Not Found",
+    "findLabel.entercakesorder": "Enter cake's order!",
+    "findLabel.search" : "Search",
+    "findLabel.searchmenu" : "Search Your Order"
     
 }

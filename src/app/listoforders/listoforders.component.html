@@ -1,0 +1,61 @@
+<div style="text-align: center;">
+    <h1>  {{'findLabel.entercakesorder' | translate}}</h1>
+    <mat-form-field class="example-full-width">
+        <input matInput type="text" [(ngModel)]="placeId" placeholder="Ex. ssw434a..."  >
+    </mat-form-field>
+
+    <button (click)="searchById(placeId)" style="margin-left: 5px; margin-bottom: 20px;" mat-raised-button color="primary" >{{'findLabel.search' | translate}}  </button>
+    <div *ngIf="jsondataFound" style="margin-top: 10px;">
+        <p>
+            <mat-label>{{'classicLabel.name' | translate}}: </mat-label> <strong> {{jsondataFound.name}} </strong> 
+        </p>
+        <p>
+            <mat-label>{{'classicLabel.type' | translate}}: </mat-label> <strong>{{jsondataFound.type}} </strong>
+        </p>
+        <p>
+            <mat-label>{{'classicLabel.cakesize' | translate}}: </mat-label> <strong>{{jsondataFound.size}} </strong>
+        </p>
+        <p>
+            <mat-label>{{'classicLabel.cakeevent' | translate}}: </mat-label> <strong> {{jsondataFound.event}}</strong>
+        </p>
+        <p>
+            <mat-label>{{'classicLabel.address' | translate}}: </mat-label> <strong>{{jsondataFound.address}} </strong>
+        </p>
+        <p>
+            <mat-label>{{'classicLabel.cellphone' | translate}}: </mat-label> <strong> {{jsondataFound.cellphone}} </strong>
+        </p>
+        <p>
+            <mat-label>{{'classicLabel.deliverydate' | translate}}: </mat-label> <strong> {{jsondataFound.deliverydate}} </strong>
+        </p>
+        <p>
+            <mat-label>{{'classicLabel.notes' | translate}}: </mat-label> <strong>{{jsondataFound.notes}} </strong>
+        </p>
+        <p>
+            <mat-label>{{'classicLabel.cakeshape' | translate}}: </mat-label> <strong> {{jsondataFound.shape}} </strong>
+        </p>
+        
+        <p>
+            <mat-label>{{'classicLabel.textontop' | translate}}: </mat-label> <strong> {{jsondataFound.textcake}} </strong>
+        </p>
+        
+        <p>
+            <mat-label>{{'popupLabel.order' | translate}}  : </mat-label> <strong>{{jsondataFound.uniqueId}}</strong>
+        </p>       
+
+        <p>
+            <mat-label>{{'classicLabel.design' | translate}}: </mat-label> <strong>{{jsondataFound.designdraw}} </strong>
+        </p>            
+
+        <p>
+            <mat-label>{{'classicLabel.ingredients' | translate}}: </mat-label> <strong>{{jsondataFound.ingredients}}</strong>
+        </p>             
+
+        <p>
+            <mat-label>{{'classicLabel.email' | translate}}: </mat-label> <strong>{{jsondataFound.email}}</strong>
+        </p>
+
+        
+    </div>
+    <div *ngIf="error" style="color: red; margin: 10px;"> <strong> {{'findLabel.error' | translate}} </strong></div>
+</div>
+ 
