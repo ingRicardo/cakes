@@ -8,6 +8,8 @@ import { CommentsectionComponent } from './commentsection/commentsection.compone
 import { MostWantedComponent } from './most-wanted/most-wanted.component';
 import { ChangelangComponent } from './changelang/changelang.component';
 import { ListofordersComponent } from './listoforders/listoforders.component';
+import { SnnlifComponent } from './snnlif/snnlif.component';
+
 const routes: Routes = [
  // { path: '', component: AppComponent },
   { path: 'restapis', component: RestapisComponent },
@@ -16,7 +18,8 @@ const routes: Routes = [
   { path: 'comment', component: CommentsectionComponent},
   { path: 'mostwanted', component: MostWantedComponent},
   {path: 'changelan', component:ChangelangComponent},
-  {path: "listoforders", component: ListofordersComponent}
+  {path: "listoforders", component: ListofordersComponent},
+  {path: "dataset", component: SnnlifComponent}
 ];
 
 @NgModule({

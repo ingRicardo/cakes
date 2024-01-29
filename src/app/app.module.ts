@@ -56,6 +56,7 @@ import {LiveAnnouncer} from '@angular/cdk/a11y';
 import { OrderpopupComponent } from './orderpopup/orderpopup.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ListofordersComponent } from './listoforders/listoforders.component';
+import { SnnlifComponent } from './snnlif/snnlif.component';
 
 
 //import { InsertjsonService } from './insertjson.service'
@@ -104,7 +105,8 @@ export const MY_FORMATS = {
     ImgCarrouselChristmasComponent,
     ImgCarrouselWeddingsComponent,
     OrderpopupComponent,
-    ListofordersComponent
+    ListofordersComponent,
+    SnnlifComponent
   ],
   imports: [
     BrowserModule,

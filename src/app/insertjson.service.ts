@@ -11,6 +11,7 @@ export class InsertjsonService {
   getcakesUrl : string ='https://web-production-b7404.up.railway.app/cakesjson/'
   getcakesDataUrl : string = "https://web-production-b7404.up.railway.app/cakesdatajson/"
 
+  getirisdataset : string = "http://127.0.0.1:8000/lifsnn/dataset"
 
 
   constructor(private  httpClient:  HttpClient ) {}
@@ -33,6 +34,12 @@ export class InsertjsonService {
       map(cake => cake.map(t =>  t.jsondata.type))
     )
   }
+
+  getIrisDataJson(): Observable<any[]>{
+    return this.httpClient.get<any[]>(this.getirisdataset)
+  }
+
+
 
 }
 
