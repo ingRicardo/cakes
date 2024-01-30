@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { InsertjsonService } from '../insertjson.service';
 import Chart from 'chart.js/auto';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import * as d3 from 'd3';
 
@@ -12,17 +13,18 @@ import * as d3 from 'd3';
 })
 export class SnnlifComponent {
   localres: any
-
+  irisImg : any
   chart: any = []
   histogram!: d3.HistogramGeneratorNumber<number, number>;
   x: any;
+  imagePath: any;
 
   // Histogram function to transform an array of numbers
 // to a frequency distribution with 60 intervals
 
 
 
-  constructor(  private insertjsonService: InsertjsonService ) { }
+  constructor( private _sanitizer: DomSanitizer, private insertjsonService: InsertjsonService ) { }
 
   
   
@@ -51,6 +53,20 @@ export class SnnlifComponent {
 
   }
 
+
+  getIrisDataImg(){
+
+    this.insertjsonService.getIrisDataImg().subscribe(
+      res =>{ this.irisImg = res
+      
+          console.log( ' res ==> ', this.irisImg["image"])
+         
+          this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+          + this.irisImg["image"]);
+          console.log( ' imagePath ==> ', this.imagePath)
+      })
+
+  }
 
   getDataset(){
  

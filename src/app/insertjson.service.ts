@@ -14,7 +14,8 @@ export class InsertjsonService {
   //getirisdataset : string = "http://127.0.0.1:8000/lifsnn/dataset"
   getirisdataset : string = "https://web-production-b7404.up.railway.app/lifsnn/dataset"
   
-
+  //getirisidataimg : string = "http://127.0.0.1:8000/lifsnn/irisdataimg"
+  getirisidataimg : string = "https://web-production-b7404.up.railway.app/lifsnn/irisdataimg"
   constructor(private  httpClient:  HttpClient ) {}
   
   sendCakeJson(json :any , date: any, email: any): Observable<any[]> {
@@ -40,6 +41,9 @@ export class InsertjsonService {
     return this.httpClient.get<any[]>(this.getirisdataset)
   }
 
+  getIrisDataImg(): Observable<any[]>{
+    return this.httpClient.get<any[]>(this.getirisidataimg)
+  }
 
 
 }

@@ -1,5 +1,8 @@
 <p  style="margin-left: 5px; margin-bottom: 20px;">Iris Dataset</p>
-<button (click)="getDataset()" style="margin-left: 5px; margin-bottom: 20px;" mat-raised-button color="primary" > Iris Data </button>
+<button (click)="getIrisDataImg()" style="margin-left: 5px; margin-bottom: 20px;" mat-raised-button color="primary" > Iris Data </button>
+
+<img  [src]="imagePath" width="100%">
+
 
 <div>
     <canvas id="canvas">{{chart}}</canvas>
