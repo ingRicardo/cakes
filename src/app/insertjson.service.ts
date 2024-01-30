@@ -11,8 +11,9 @@ export class InsertjsonService {
   getcakesUrl : string ='https://web-production-b7404.up.railway.app/cakesjson/'
   getcakesDataUrl : string = "https://web-production-b7404.up.railway.app/cakesdatajson/"
 
-  getirisdataset : string = "http://127.0.0.1:8000/lifsnn/dataset"
-
+  //getirisdataset : string = "http://127.0.0.1:8000/lifsnn/dataset"
+  getirisdataset : string = "https://web-production-b7404.up.railway.app/lifsnn/dataset"
+  
 
   constructor(private  httpClient:  HttpClient ) {}
   
