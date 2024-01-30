@@ -14,8 +14,31 @@ export class InsertjsonService {
   //getirisdataset : string = "http://127.0.0.1:8000/lifsnn/dataset"
   getirisdataset : string = "https://web-production-b7404.up.railway.app/lifsnn/dataset"
   
-  //getirisidataimg : string = "http://127.0.0.1:8000/lifsnn/irisdataimg"
-  getirisidataimg : string = "https://web-production-b7404.up.railway.app/lifsnn/irisdataimg"
+  getirisidataimg : string = "http://127.0.0.1:8000/lifsnn/irisdataimg"
+  //getirisidataimg : string = "https://web-production-b7404.up.railway.app/lifsnn/irisdataimg"
+
+
+  //getirisgaussian : string = "http://127.0.0.1:8000/lifsnn/irisgaussian"
+  getirisgaussian : string = "https://web-production-b7404.up.railway.app/lifsnn/irisgaussian"
+  
+
+  //getirislatancy : string = "http://127.0.0.1:8000/lifsnn/irislatancy"
+  getirislatancy : string = "https://web-production-b7404.up.railway.app/lifsnn/irislatancy"
+  
+  //getirislatancy2 : string = "http://127.0.0.1:8000/lifsnn/irislatancy2"
+  getirislatancy2 : string = "https://web-production-b7404.up.railway.app/lifsnn/irislatancy2"
+  
+  //presynapneurons : string ="http://127.0.0.1:8000/lifsnn/irispresynapneurons"
+  presynapneurons : string ="https://web-production-b7404.up.railway.app/lifsnn/irispresynapneurons"
+
+
+  //postsynapticneurons: string = "http://127.0.0.1:8000/lifsnn/irispostsynneu"
+  postsynapticneurons: string = "https://web-production-b7404.up.railway.app/lifsnn/irispostsynneu"
+ 
+
+  //synapticspikes : string = "http://127.0.0.1:8000/lifsnn/irissynapticspikes"
+  synapticspikes : string = "https://web-production-b7404.up.railway.app/lifsnn/irissynapticspikes"
+
   constructor(private  httpClient:  HttpClient ) {}
   
   sendCakeJson(json :any , date: any, email: any): Observable<any[]> {
@@ -45,6 +68,27 @@ export class InsertjsonService {
     return this.httpClient.get<any[]>(this.getirisidataimg)
   }
 
+  getIrisGaussImg(): Observable<any[]>{
+    return this.httpClient.get<any[]>(this.getirisgaussian)
+  }
+  getIrisLatancyImg(): Observable<any[]>{
+    return this.httpClient.get<any[]>(this.getirislatancy)
+  }
+
+  getIrisLatancyImg2(): Observable<any[]>{
+    return this.httpClient.get<any[]>(this.getirislatancy2)
+  }
+
+  getPresynapticNeuronsImg(): Observable<any[]>{
+    return this.httpClient.get<any[]>(this.presynapneurons)
+  }
+
+  getPostsynapticNeuronsImg(): Observable<any[]>{
+    return this.httpClient.get<any[]>(this.postsynapticneurons)
+  }
+  getSynapticSpikesImg(): Observable<any[]>{
+    return this.httpClient.get<any[]>(this.synapticspikes)
+  }
 
 }
 

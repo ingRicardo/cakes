@@ -1,9 +1,34 @@
 <p  style="margin-left: 5px; margin-bottom: 20px;">Iris Dataset</p>
 <button (click)="getIrisDataImg()" style="margin-left: 5px; margin-bottom: 20px;" mat-raised-button color="primary" > Iris Data </button>
 
+<button (click)="getIrisGaussian()" style="margin-left: 5px; margin-bottom: 20px;" mat-raised-button color="primary" > Iris Gauss </button>
+
+
+<button (click)="getIrisLatancy()" style="margin-left: 5px; margin-bottom: 20px;" mat-raised-button color="primary" > Iris Latancy </button>
+<button (click)="getIrisLatancy2()" style="margin-left: 5px; margin-bottom: 20px;" mat-raised-button color="primary" > Iris Latancy2 </button>
+<button (click)="getIrisPresinaNeurons()" style="margin-left: 5px; margin-bottom: 20px;" mat-raised-button color="primary" > Presynap Neurons </button>
+<button (click)="getIrisPostsinaNeurons()" style="margin-left: 5px; margin-bottom: 20px;" mat-raised-button color="primary" > Postsynap Neurons </button>
+<button (click)="getIrisSynapticSpikes()" style="margin-left: 5px; margin-bottom: 20px;" mat-raised-button color="primary" > Synaptic Spikes </button>
+
+
 <img  [src]="imagePath" width="100%">
-
-
+<img  [src]="imageGaussPath" width="100%">
+<img  [src]="imageGaussPath2" width="100%">
+<img  [src]="imageIrislatancyPath" width="100%">
+<img  [src]="imageIrislatancyPath2" width="100%">
+<img  [src]="imagePresinaNeuronsPath" width="100%">
+<img  [src]="imagePostsinaNeuronsPath7" width="100%">
+<img  [src]="imagePostsinaNeuronsPath8" width="100%">
+<img  [src]="imagePostsinaNeuronsPath9" width="100%">
+<img  [src]="imagePostsinaNeuronsPath10" width="100%">
+<img  [src]="imagePostsinaNeuronsPath11" width="100%">
+<img  [src]="imagePostsinaNeuronsPath12" width="100%">
+<img  [src]="imageSynapticSpikesPath13" width="100%">
+<img  [src]="imageSynapticSpikesPath14" width="100%">
+<img  [src]="imageSynapticSpikesPath15" width="100%">
+<img  [src]="imageSynapticSpikesPath16" width="100%">
+<img  [src]="imageSynapticSpikesPath17" width="100%">
+<img  [src]="imageSynapticSpikesPath18" width="100%">
 <div>
     <canvas id="canvas">{{chart}}</canvas>
   </div>
