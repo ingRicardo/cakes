@@ -11,7 +11,7 @@ import { ListofordersComponent } from './listoforders/listoforders.component';
 import { SnnlifComponent } from './snnlif/snnlif.component';
 
 const routes: Routes = [
- // { path: '', component: AppComponent },
+  { path: '', component: MaincakesComponent },
   { path: 'restapis', component: RestapisComponent },
   { path: 'classic', component: ClassicComponent},
   { path: 'create', component: CakeStepperComponent},
@@ -20,6 +20,7 @@ const routes: Routes = [
   {path: 'changelan', component:ChangelangComponent},
   {path: "listoforders", component: ListofordersComponent},
   {path: "dataset", component: SnnlifComponent}
+
 ];
 
 @NgModule({

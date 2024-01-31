@@ -242,6 +242,7 @@ formControlIngredients = this.ingre
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      window.location.reload()
     });
 
 
