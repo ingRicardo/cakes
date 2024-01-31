@@ -12,6 +12,8 @@ import * as d3 from 'd3';
   styleUrl: './snnlif.component.css'
 })
 export class SnnlifComponent {
+
+  
   localres: any
   irisImg : any
   irisGausImg : any

@@ -14,8 +14,8 @@ export class InsertjsonService {
   //getirisdataset : string = "http://127.0.0.1:8000/lifsnn/dataset"
   getirisdataset : string = "https://web-production-b7404.up.railway.app/lifsnn/dataset"
   
-  getirisidataimg : string = "http://127.0.0.1:8000/lifsnn/irisdataimg"
-  //getirisidataimg : string = "https://web-production-b7404.up.railway.app/lifsnn/irisdataimg"
+  //getirisidataimg : string = "http://127.0.0.1:8000/lifsnn/irisdataimg"
+  getirisidataimg : string = "https://web-production-b7404.up.railway.app/lifsnn/irisdataimg"
 
 
   //getirisgaussian : string = "http://127.0.0.1:8000/lifsnn/irisgaussian"

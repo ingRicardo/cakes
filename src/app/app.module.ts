@@ -58,7 +58,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ListofordersComponent } from './listoforders/listoforders.component';
 import { SnnlifComponent } from './snnlif/snnlif.component';
 
-
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 //import { InsertjsonService } from './insertjson.service'
 // Depending on whether rollup is used, moment needs to be imported differently.
 // Since Moment.js doesn't have a default export, we normally need to import using the `* as`
@@ -129,6 +129,7 @@ export const MY_FORMATS = {
     MatDatepickerModule,
     MatNativeDateModule,
     HttpClientModule,
+    MatButtonToggleModule,
     TranslateModule.forRoot({
       loader: {
       provide: TranslateLoader,
