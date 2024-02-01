@@ -67,7 +67,7 @@ export class MostWantedComponent {
   }
   ngOnDestroy(){
      
-    this.chart.destroy()
+     
   }
 
 }
