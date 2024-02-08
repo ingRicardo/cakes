@@ -3,30 +3,39 @@
 <mat-tab-group>
   <mat-tab label="dataset"> 
     <button (click)="getIrisDataImg()" style="margin-left: 5px; margin-bottom: 20px; margin-top: 20px;" mat-raised-button color="primary" > Iris Data </button>
+    <mat-spinner *ngIf="showloading"></mat-spinner>
+
     <img  [src]="imagePath" width="100%">
   </mat-tab>
   <mat-tab label="IrisGaussian"> 
     
     <button (click)="getIrisGaussian()" style="margin-left: 5px; margin-bottom: 20px; margin-top: 20px;" mat-raised-button color="primary" > Iris Gauss </button>
+    <mat-spinner style="text-align: center;" *ngIf="showloading"></mat-spinner>
+
     <img  [src]="imageGaussPath" width="100%">
     <img  [src]="imageGaussPath2" width="100%">
 
   </mat-tab>
   <mat-tab label="IrisLatancy"> 
     <button (click)="getIrisLatancy()" style="margin-left: 5px; margin-bottom: 20px; margin-top: 20px;" mat-raised-button color="primary" > Iris Latancy </button>
+    <mat-spinner *ngIf="showloading"></mat-spinner>
+    
     <img  [src]="imageIrislatancyPath" width="100%">
   
   </mat-tab>
   <mat-tab label="IrisLatancy2"> 
     <button (click)="getIrisLatancy2()" style="margin-left: 5px; margin-bottom: 20px; margin-top: 20px;" mat-raised-button color="primary" > Iris Latancy2 </button>
+    <mat-spinner *ngIf="showloading"></mat-spinner>
     <img  [src]="imageIrislatancyPath2" width="100%">
   </mat-tab>
   <mat-tab label="IrisPresinaNeurons"> 
     <button (click)="getIrisPresinaNeurons()" style="margin-left: 5px; margin-bottom: 20px; margin-top: 20px;" mat-raised-button color="primary" > Presynap Neurons </button>
+    <mat-spinner *ngIf="showloading"></mat-spinner>
     <img  [src]="imagePresinaNeuronsPath" width="100%">
   </mat-tab>
   <mat-tab label="IrisPostsinaNeurons">
     <button (click)="getIrisPostsinaNeurons()" style="margin-left: 5px; margin-bottom: 20px; margin-top: 20px;" mat-raised-button color="primary" > Postsynap Neurons </button>
+    <mat-spinner *ngIf="showloading"></mat-spinner>
     <img  [src]="imagePostsinaNeuronsPath7" width="100%">
     <img  [src]="imagePostsinaNeuronsPath8" width="100%">
     <img  [src]="imagePostsinaNeuronsPath9" width="100%">
@@ -36,6 +45,7 @@
   </mat-tab>
   <mat-tab label="IrisSynapticSpikes"> 
     <button (click)="getIrisSynapticSpikes()" style="margin-left: 5px; margin-bottom: 20px; margin-top: 20px;" mat-raised-button color="primary" > Synaptic Spikes </button>
+    <mat-spinner *ngIf="showloading"></mat-spinner>
     <img  [src]="imageSynapticSpikesPath13" width="100%">
     <img  [src]="imageSynapticSpikesPath14" width="100%">
     <img  [src]="imageSynapticSpikesPath15" width="100%">

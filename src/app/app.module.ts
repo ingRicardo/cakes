@@ -59,6 +59,9 @@ import { ListofordersComponent } from './listoforders/listoforders.component';
 import { SnnlifComponent } from './snnlif/snnlif.component';
 
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+
 //import { InsertjsonService } from './insertjson.service'
 // Depending on whether rollup is used, moment needs to be imported differently.
 // Since Moment.js doesn't have a default export, we normally need to import using the `* as`
@@ -137,7 +140,7 @@ export const MY_FORMATS = {
       deps: [HttpClient]
       }
     }),
-     MatChipsModule, MatDialogModule
+     MatChipsModule, MatDialogModule, MatProgressSpinnerModule
     
   ],
   schemas: [

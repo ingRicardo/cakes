@@ -49,6 +49,7 @@ export class SnnlifComponent {
   imageSynapticSpikesPath13: any;
   imageSynapticSpikes: any;
 
+  showloading = false
   // Histogram function to transform an array of numbers
 // to a frequency distribution with 60 intervals
 
@@ -61,141 +62,246 @@ export class SnnlifComponent {
 
   getIrisDataImg(){
 
-    this.insertjsonService.getIrisDataImg().subscribe(
-      res =>{ this.irisImg = res
-      
-          console.log( ' res ==> ', this.irisImg["image"])
-         
-          this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.irisImg["image"]);
-          console.log( ' imagePath ==> ', this.imagePath)
-      })
+    try {
+      this.imagePath = null
+      this.showloading= true
+      this.insertjsonService.getIrisDataImg().subscribe(
+        res =>{ this.irisImg = res
+  
+          
+            console.log( ' res ==> ', this.irisImg["image"])
+  
+            this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.irisImg["image"]);
+            console.log( ' imagePath ==> ', this.imagePath)
+            if(this.imagePath)
+              this.showloading= false
+             
+        })
 
+
+    } catch (error) {
+      console.log("error-----> ", error)
+    }
+
+
+   
   }
 
   getIrisGaussian(){
-    this.insertjsonService.getIrisGaussImg().subscribe(
-      res =>{ this.irisGausImg = res
+
+
+    try {
+      this.imageGaussPath = null 
+      this.imageGaussPath2 = null
+      this.showloading= true
+      this.insertjsonService.getIrisGaussImg().subscribe(
+        res =>{ this.irisGausImg = res
+           
+            console.log( ' res ==> ', this.irisGausImg["image"])
+           
+            this.imageGaussPath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.irisGausImg["image"]);
+  
+            this.imageGaussPath2 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.irisGausImg["image2"]);
+  
+            console.log( ' imageGaussPath ==> ', this.imageGaussPath)
+            console.log( ' imageGaussPath2 ==> ', this.imageGaussPath2)
+            if(this.imageGaussPath)
+                this.showloading= false
+        })
+    } catch (error) {
+      console.log("error-----> ", error)
+    }
+
+
       
-          console.log( ' res ==> ', this.irisGausImg["image"])
-         
-          this.imageGaussPath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.irisGausImg["image"]);
-
-          this.imageGaussPath2 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.irisGausImg["image2"]);
-
-          console.log( ' imageGaussPath ==> ', this.imageGaussPath)
-          console.log( ' imageGaussPath2 ==> ', this.imageGaussPath2)
-      })
   }
 
   getIrisLatancy(){
 
-    this.insertjsonService.getIrisLatancyImg().subscribe(
-      res =>{ this.imageIrislatancy = res
-      
-          console.log( ' res ==> ', this.imageIrislatancy["image"])
-         
-          this.imageIrislatancyPath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imageIrislatancy["image"]);
-          console.log( ' imageIrislatancyPath ==> ', this.imageIrislatancyPath)
-      })
+
+    try {
+      this.imageIrislatancyPath = null
+      this.showloading= true
+      this.insertjsonService.getIrisLatancyImg().subscribe(
+        res =>{ this.imageIrislatancy = res
+           
+            console.log( ' res ==> ', this.imageIrislatancy["image"])
+           
+            this.imageIrislatancyPath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imageIrislatancy["image"]);
+            console.log( ' imageIrislatancyPath ==> ', this.imageIrislatancyPath)
+            if(this.imageIrislatancyPath)
+              this.showloading= false
+        })
+       
+    } catch (error) {
+      console.log("error-----> ", error)
+    }
+    
+   
 
   }
 
   getIrisLatancy2(){
 
-    this.insertjsonService.getIrisLatancyImg2().subscribe(
-      res =>{ this.imageIrislatancy2 = res
-      
-          console.log( ' res ==> ', this.imageIrislatancy2["image"])
-         
-          this.imageIrislatancyPath2 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imageIrislatancy2["image"]);
-          console.log( ' imageIrislatancyPath2 ==> ', this.imageIrislatancyPath2)
-      })
+    try {
+      this.imageIrislatancyPath2 = null
+      this.showloading= true
+      this.insertjsonService.getIrisLatancyImg2().subscribe(
+        res =>{ this.imageIrislatancy2 = res
+           
+            console.log( ' res ==> ', this.imageIrislatancy2["image"])
+           
+            this.imageIrislatancyPath2 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imageIrislatancy2["image"]);
+            console.log( ' imageIrislatancyPath2 ==> ', this.imageIrislatancyPath2)
+  
+            if(this.imageIrislatancyPath2)
+              this.showloading= false
+        })
+    } catch (error) {
+      console.log("error-----> ", error)
+    }
+
 
   }
 
   getIrisPresinaNeurons(){
-    this.insertjsonService.getPresynapticNeuronsImg().subscribe(
-      res =>{ this.imagePresinaNeurons = res
-      
-          console.log( ' res ==> ', this.imagePresinaNeurons["image"])
+
+
+    try {
+      this.imagePresinaNeuronsPath = null
+      this.showloading= true
+      this.insertjsonService.getPresynapticNeuronsImg().subscribe(
+        res =>{ this.imagePresinaNeurons = res
          
-          this.imagePresinaNeuronsPath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imagePresinaNeurons["image"]);
-          console.log( ' imagePresinaNeuronsPath ==> ', this.imagePresinaNeuronsPath)
-      })
+            console.log( ' res ==> ', this.imagePresinaNeurons["image"])
+           
+            this.imagePresinaNeuronsPath = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imagePresinaNeurons["image"]);
+            console.log( ' imagePresinaNeuronsPath ==> ', this.imagePresinaNeuronsPath)
+  
+            if(this.imagePresinaNeuronsPath)
+              this.showloading= false
+  
+        })
+    } catch (error) {
+      console.log("error-----> ", error)
+    }
+
+
   }
 
   getIrisPostsinaNeurons(){
-    this.insertjsonService.getPostsynapticNeuronsImg().subscribe(
-      res =>{ this.imagePostsinaNeurons = res
-      
-          console.log( ' res ==> ', this.imagePostsinaNeurons["image7"])
-         
-          this.imagePostsinaNeuronsPath7 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imagePostsinaNeurons["image7"]);
-          console.log( ' imagePostsinaNeuronsPath7 ==> ', this.imagePostsinaNeuronsPath7)
 
-          this.imagePostsinaNeuronsPath8 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imagePostsinaNeurons["image8"]);
-          console.log( ' imagePostsinaNeuronsPath8 ==> ', this.imagePostsinaNeuronsPath8)
 
-          this.imagePostsinaNeuronsPath9 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imagePostsinaNeurons["image9"]);
-          console.log( ' imagePostsinaNeuronsPath9 ==> ', this.imagePostsinaNeuronsPath9)
-
-          this.imagePostsinaNeuronsPath10 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imagePostsinaNeurons["image10"]);
-          console.log( ' imagePostsinaNeuronsPath10 ==> ', this.imagePostsinaNeuronsPath10)
-
-          this.imagePostsinaNeuronsPath11 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imagePostsinaNeurons["image11"]);
-          console.log( ' imagePostsinaNeuronsPath11 ==> ', this.imagePostsinaNeuronsPath11)
-
-          this.imagePostsinaNeuronsPath12 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imagePostsinaNeurons["image12"]);
-          console.log( ' imagePostsinaNeuronsPath12 ==> ', this.imagePostsinaNeuronsPath12)
-
+    try {
+      this.imagePostsinaNeuronsPath7 = null
+      this.imagePostsinaNeuronsPath8 = null
+      this.imagePostsinaNeuronsPath9 = null
+      this.imagePostsinaNeuronsPath10 = null
+      this.imagePostsinaNeuronsPath11 = null
+      this.imagePostsinaNeuronsPath12 = null
+      this.showloading= true
+      this.insertjsonService.getPostsynapticNeuronsImg().subscribe(
+        res =>{ this.imagePostsinaNeurons = res
+  
           
-      })
+            console.log( ' res ==> ', this.imagePostsinaNeurons["image7"])
+           
+            this.imagePostsinaNeuronsPath7 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imagePostsinaNeurons["image7"]);
+            console.log( ' imagePostsinaNeuronsPath7 ==> ', this.imagePostsinaNeuronsPath7)
+  
+            this.imagePostsinaNeuronsPath8 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imagePostsinaNeurons["image8"]);
+            console.log( ' imagePostsinaNeuronsPath8 ==> ', this.imagePostsinaNeuronsPath8)
+  
+            this.imagePostsinaNeuronsPath9 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imagePostsinaNeurons["image9"]);
+            console.log( ' imagePostsinaNeuronsPath9 ==> ', this.imagePostsinaNeuronsPath9)
+  
+            this.imagePostsinaNeuronsPath10 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imagePostsinaNeurons["image10"]);
+            console.log( ' imagePostsinaNeuronsPath10 ==> ', this.imagePostsinaNeuronsPath10)
+  
+            this.imagePostsinaNeuronsPath11 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imagePostsinaNeurons["image11"]);
+            console.log( ' imagePostsinaNeuronsPath11 ==> ', this.imagePostsinaNeuronsPath11)
+  
+            this.imagePostsinaNeuronsPath12 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imagePostsinaNeurons["image12"]);
+            console.log( ' imagePostsinaNeuronsPath12 ==> ', this.imagePostsinaNeuronsPath12)
+  
+            if(this.imagePostsinaNeuronsPath7)
+              this.showloading= false
+        })
+
+
+
+    } catch (error) {
+      console.log("error-----> ", error)
+    }
+
+
   }
 
   getIrisSynapticSpikes(){
-    this.insertjsonService.getSynapticSpikesImg().subscribe(
-      res =>{ this.imageSynapticSpikes = res
-      
-          console.log( ' res ==> ', this.imageSynapticSpikes["image13"])
-         
-          this.imageSynapticSpikesPath13 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imageSynapticSpikes["image13"]);
-          console.log( ' imageSynapticSpikesPath13 ==> ', this.imageSynapticSpikesPath13)
-
-          this.imageSynapticSpikesPath14 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imageSynapticSpikes["image14"]);
-          console.log( ' imageSynapticSpikesPath14 ==> ', this.imageSynapticSpikesPath14)
-
-          this.imageSynapticSpikesPath15 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imageSynapticSpikes["image15"]);
-          console.log( ' imageSynapticSpikesPath15 ==> ', this.imageSynapticSpikesPath15)
-
-          this.imageSynapticSpikesPath16 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imageSynapticSpikes["image16"]);
-          console.log( ' imageSynapticSpikesPath16 ==> ', this.imageSynapticSpikesPath16)
-
-          this.imageSynapticSpikesPath17 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imageSynapticSpikes["image17"]);
-          console.log( ' imageSynapticSpikesPath17 ==> ', this.imageSynapticSpikesPath17)
-
-          this.imageSynapticSpikesPath18 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
-          + this.imageSynapticSpikes["image18"]);
-          console.log( ' imageSynapticSpikesPath18 ==> ', this.imageSynapticSpikesPath18)
 
 
-      })
+    try {
+      this.imageSynapticSpikesPath13 = null
+      this.imageSynapticSpikesPath14 = null
+      this.imageSynapticSpikesPath15 = null
+      this.imageSynapticSpikesPath16 = null
+      this.imageSynapticSpikesPath17 = null
+      this.imageSynapticSpikesPath18 = null
+
+
+      this.showloading= true
+      this.insertjsonService.getSynapticSpikesImg().subscribe(
+        res =>{ this.imageSynapticSpikes = res
+            
+        
+            console.log( ' res ==> ', this.imageSynapticSpikes["image13"])
+           
+            this.imageSynapticSpikesPath13 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imageSynapticSpikes["image13"]);
+            console.log( ' imageSynapticSpikesPath13 ==> ', this.imageSynapticSpikesPath13)
+  
+            this.imageSynapticSpikesPath14 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imageSynapticSpikes["image14"]);
+            console.log( ' imageSynapticSpikesPath14 ==> ', this.imageSynapticSpikesPath14)
+  
+            this.imageSynapticSpikesPath15 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imageSynapticSpikes["image15"]);
+            console.log( ' imageSynapticSpikesPath15 ==> ', this.imageSynapticSpikesPath15)
+  
+            this.imageSynapticSpikesPath16 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imageSynapticSpikes["image16"]);
+            console.log( ' imageSynapticSpikesPath16 ==> ', this.imageSynapticSpikesPath16)
+  
+            this.imageSynapticSpikesPath17 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imageSynapticSpikes["image17"]);
+            console.log( ' imageSynapticSpikesPath17 ==> ', this.imageSynapticSpikesPath17)
+  
+            this.imageSynapticSpikesPath18 = this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' 
+            + this.imageSynapticSpikes["image18"]);
+            console.log( ' imageSynapticSpikesPath18 ==> ', this.imageSynapticSpikesPath18)
+  
+  
+  
+            if(this.imageSynapticSpikes)
+              this.showloading= false
+        })
+  
+    } catch (error) {
+      console.log("error-----> ", error)
+    }
+
 
   }
 
