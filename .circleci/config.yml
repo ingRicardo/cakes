@@ -36,7 +36,7 @@ jobs:
           name: "Deploy app to Firebase Hosting"
           command: |
             echo $FIREBASE_TOKEN > credentials.json
-            $GOOGLE_APPLICATION_CREDENTIALS=credentials.json
+            GOOGLE_APPLICATION_CREDENTIALS=credentials.json
       - run:
           name: "Remove credentials file"
           command: "rm $GOOGLE_APPLICATION_CREDENTIALS"
