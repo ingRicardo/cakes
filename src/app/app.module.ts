@@ -60,6 +60,7 @@ import { SnnlifComponent } from './snnlif/snnlif.component';
 
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MyinfoComponent } from './myinfo/myinfo.component';
 
 
 //import { InsertjsonService } from './insertjson.service'
@@ -109,7 +110,8 @@ export const MY_FORMATS = {
     ImgCarrouselWeddingsComponent,
     OrderpopupComponent,
     ListofordersComponent,
-    SnnlifComponent
+    SnnlifComponent,
+    MyinfoComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ import { MostWantedComponent } from './most-wanted/most-wanted.component';
 import { ChangelangComponent } from './changelang/changelang.component';
 import { ListofordersComponent } from './listoforders/listoforders.component';
 import { SnnlifComponent } from './snnlif/snnlif.component';
-
+import { MyinfoComponent } from './myinfo/myinfo.component';
 const routes: Routes = [
   { path: '', component: MaincakesComponent },
   { path: 'restapis', component: RestapisComponent },
@@ -19,7 +19,8 @@ const routes: Routes = [
   { path: 'mostwanted', component: MostWantedComponent},
   {path: 'changelan', component:ChangelangComponent},
   {path: "listoforders", component: ListofordersComponent},
-  {path: "dataset", component: SnnlifComponent}
+  {path: "dataset", component: SnnlifComponent},
+  {path: "myinfo", component: MyinfoComponent}
 
 ];
 
