@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, RouterOutlet } from '@angular/router';
 import { RestapisComponent } from './restapis/restapis.component';
 import { MaincakesComponent } from './maincakes/maincakes.component';
 import { ClassicComponent } from './classic/classic.component';
@@ -25,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), RouterOutlet],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

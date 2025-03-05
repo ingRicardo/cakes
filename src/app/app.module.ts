@@ -61,6 +61,11 @@ import { SnnlifComponent } from './snnlif/snnlif.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MyinfoComponent } from './myinfo/myinfo.component';
+import { DrawerComponent } from './drawer/drawer.component';
+import { WorkexpComponent } from './workexp/workexp.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { SpecareasComponent } from './specareas/specareas.component';
+import { EducationComponent } from './education/education.component';
 
 
 //import { InsertjsonService } from './insertjson.service'
@@ -111,7 +116,11 @@ export const MY_FORMATS = {
     OrderpopupComponent,
     ListofordersComponent,
     SnnlifComponent,
-    MyinfoComponent
+    MyinfoComponent,
+    DrawerComponent,
+    WorkexpComponent,
+    SpecareasComponent,
+    EducationComponent
   ],
   imports: [
     BrowserModule,
@@ -142,7 +151,7 @@ export const MY_FORMATS = {
       deps: [HttpClient]
       }
     }),
-     MatChipsModule, MatDialogModule, MatProgressSpinnerModule
+     MatChipsModule, MatDialogModule, MatProgressSpinnerModule, MatExpansionModule
     
   ],
   schemas: [

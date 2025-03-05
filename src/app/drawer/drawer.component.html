@@ -1,0 +1,68 @@
+<mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Menu</p>
+
+
+      @if (showFiller) {
+        <p>My hobby is to create apps.</p>
+        <p>
+        <button  (click)="showTest = !showTest" mat-raised-button>My Info</button></p>
+        <p>
+        <button  (click)="showTest1 = !showTest1" mat-raised-button>Work Experience</button></p>
+        <p>
+        <button  (click)="specialty = !specialty" mat-raised-button>Specialty Areas</button></p>
+        <p>
+        <button  (click)="education = !education" mat-raised-button>Education</button></p>
+
+      }
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra Info
+      </button>
+    </mat-drawer>
+  
+    <div class="example-sidenav-content">
+      <button type="button" mat-button (click)="drawer.toggle()">
+        Toggle Menu
+      </button>
+      @if (showTest) {
+        <h2>My Info</h2>
+        <mat-card appearance="outlined">
+            <mat-card-content>
+                <p>Ricardo Alfredo Macias Olvera</p>
+                <p>40 Years Old</p>
+                <p>Tijuana. B.C. Mexico</p>
+                <p>+52 044-6641268391</p>
+                <p>ramo2884&#64;gmail.com</p>
+                <p>ra_mo116&#64;hotmail.com</p>
+            </mat-card-content>
+        </mat-card>
+          
+
+      }
+      @if (showTest1) {
+        <h2>Work Experience</h2>
+        <app-workexp></app-workexp>
+
+      }
+      @if (specialty) {
+        <h2>Specialty Areas</h2>
+        <app-specareas></app-specareas>
+      }
+      @if (education) {
+        <h2>Education</h2>
+        <app-education></app-education>
+      }
+
+      <h1>Ing. Ricardo Alfredo Macias </h1>
+      <mat-card appearance="outlined">
+        <mat-card-content>
+            <p>This small page is about my work experience and some personal data is shared so anyone can contact me for IT services, Software development or job interviews </p>
+            <img width=50% height=100% src="../assets/img/me.jpg"/>
+
+        </mat-card-content>
+    </mat-card>
+ 
+    </div>
+  
+  </mat-drawer-container>
+  

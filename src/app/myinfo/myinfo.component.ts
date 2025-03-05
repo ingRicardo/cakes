@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DrawerComponent } from '../drawer/drawer.component';
 
 @Component({
   selector: 'app-myinfo',
