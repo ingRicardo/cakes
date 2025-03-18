@@ -66,6 +66,10 @@ import { WorkexpComponent } from './workexp/workexp.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { SpecareasComponent } from './specareas/specareas.component';
 import { EducationComponent } from './education/education.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
+import { NewvehicleComponent } from './newvehicle/newvehicle.component';
+import {MatDividerModule} from '@angular/material/divider';
+import { CovervehicleComponent } from './covervehicle/covervehicle.component';
 
 
 //import { InsertjsonService } from './insertjson.service'
@@ -120,7 +124,10 @@ export const MY_FORMATS = {
     DrawerComponent,
     WorkexpComponent,
     SpecareasComponent,
-    EducationComponent
+    EducationComponent,
+    VehicleComponent,
+    NewvehicleComponent,
+    CovervehicleComponent
   ],
   imports: [
     BrowserModule,
@@ -151,7 +158,8 @@ export const MY_FORMATS = {
       deps: [HttpClient]
       }
     }),
-     MatChipsModule, MatDialogModule, MatProgressSpinnerModule, MatExpansionModule
+     MatChipsModule, MatDialogModule, MatProgressSpinnerModule, MatExpansionModule,
+     MatDividerModule
     
   ],
   schemas: [

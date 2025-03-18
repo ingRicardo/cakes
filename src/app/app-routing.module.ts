@@ -10,6 +10,7 @@ import { ChangelangComponent } from './changelang/changelang.component';
 import { ListofordersComponent } from './listoforders/listoforders.component';
 import { SnnlifComponent } from './snnlif/snnlif.component';
 import { MyinfoComponent } from './myinfo/myinfo.component';
+import { VehicleComponent } from './vehicle/vehicle.component';
 const routes: Routes = [
   { path: '', component: MaincakesComponent },
   { path: 'restapis', component: RestapisComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'changelan', component:ChangelangComponent},
   {path: "listoforders", component: ListofordersComponent},
   {path: "dataset", component: SnnlifComponent},
-  {path: "myinfo", component: MyinfoComponent}
+  {path: "myinfo", component: MyinfoComponent},
+  {path: "vehicle", component: VehicleComponent}
 
 ];
 

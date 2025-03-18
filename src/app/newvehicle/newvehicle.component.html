@@ -1,0 +1,29 @@
+
+
+<div class="newvehiclemain">
+    <p>Add Vehicle</p>
+
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Model</mat-label>
+          <input matInput placeholder="Ex. Chevrolet Tahoe" value="">
+        </mat-form-field>
+        <h4>Year</h4>
+        <mat-form-field>
+          <mat-label>Vehicle Year</mat-label>
+          <mat-select>
+            @for (year of years; track year) {
+              <mat-option [value]="year.value">{{year.viewValue}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </form>
+      <mat-divider></mat-divider>
+      <section>
+        <div class="example-button-row">
+          <button mat-button>Add</button>
+
+        </div>
+      </section>
+</div>
