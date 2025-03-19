@@ -3,18 +3,27 @@
 <div class="newvehiclemain">
     <p>Add Vehicle</p>
 
-
     <form class="example-form">
+
         <mat-form-field class="example-full-width">
           <mat-label>Model</mat-label>
-          <input matInput placeholder="Ex. Chevrolet Tahoe" value="">
+          <input matInput id="carmodel" type="text" placeholder="Ex. Chevrolet Tahoe"  [(ngModel)]="carmodel" name="carmodel" >
         </mat-form-field>
         <h4>Year</h4>
         <mat-form-field>
           <mat-label>Vehicle Year</mat-label>
-          <mat-select>
+          <mat-select  [(value)]="selectedyear">
             @for (year of years; track year) {
               <mat-option [value]="year.value">{{year.viewValue}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <h4>Make</h4>
+        <mat-form-field>
+          <mat-label>Make</mat-label>
+          <mat-select [(value)]="selectedmake">
+            @for (make of makes; track make) {
+              <mat-option [value]="make.value">{{make.viewValue}}</mat-option>
             }
           </mat-select>
         </mat-form-field>
@@ -22,7 +31,7 @@
       <mat-divider></mat-divider>
       <section>
         <div class="example-button-row">
-          <button mat-button>Add</button>
+          <button  mat-flat-button  (click)="showVehicle()">Add</button>
 
         </div>
       </section>

@@ -2,7 +2,7 @@
 
 
 <mat-drawer-container class="example-container">
-    <mat-drawer mode="side" opened>
+    <mat-drawer #drawer mode="side" opened>
         
         <button mat-button [matMenuTriggerFor]="menu">Menu</button>
         <mat-menu #menu="matMenu">
@@ -12,9 +12,11 @@
             
     </mat-drawer>
     <mat-drawer-content>
-        
+        <button mat-raised-button (click)="drawer.toggle()">Toggle Menu</button>
+
         <app-newvehicle *ngIf="visible" ></app-newvehicle>
         <app-covervehicle *ngIf="cover"></app-covervehicle>
+
     </mat-drawer-content>
 </mat-drawer-container>
   
