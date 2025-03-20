@@ -2,6 +2,9 @@ import {Inject, Injectable } from '@angular/core';
 import { HttpClient } from  '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -43,6 +46,10 @@ export class InsertjsonService {
 
   //synapticspikes : string = "http://127.0.0.1:8000/lifsnn/irissynapticspikes"
   synapticspikes : string = "https://web-production-b7404.up.railway.app/lifsnn/irissynapticspikes"
+
+
+  newvehicle_URL: string = "https://conisoft.org/cakes/insertvehicle.php";
+
 
   constructor(private  httpClient:  HttpClient ) {}
   
@@ -93,6 +100,10 @@ export class InsertjsonService {
   }
   getSynapticSpikesImg(): Observable<any[]>{
     return this.httpClient.get<any[]>(this.synapticspikes)
+  }
+
+  addNewVehicle(newvehicle :any  ): Observable<any[]> {
+    return this.httpClient.post<any[]>(this.newvehicle_URL, newvehicle)
   }
 
 }

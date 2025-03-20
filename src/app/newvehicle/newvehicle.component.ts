@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Vehicle } from '../vehicle';
+import { InsertjsonService } from '../insertjson.service';
 
 interface Year {
   value: string;
@@ -22,6 +23,8 @@ export class NewvehicleComponent {
     carmodel !: string;
     selectedyear !: string;
     selectedmake !: string;
+
+    vehicleInsertRes : any
   years: Year[] = [
     {value: '1999', viewValue: '1999'},
     {value: '2000', viewValue: '2000'},
@@ -33,11 +36,21 @@ export class NewvehicleComponent {
     {value: 'Nissan ', viewValue: 'Nissan'},
     {value: 'Mazda', viewValue: 'Mazda'},
   ];
+constructor(  private insertjsonService: InsertjsonService  ) { }
 
   showVehicle(){
     if (this.carmodel && this.selectedyear && this.selectedmake ){
       var vehic = new Vehicle(this.carmodel, this.selectedyear, this.selectedmake);
-      alert (vehic.model + " "+ vehic.year + " "+ vehic.make);
+      const jsonStrVehicle = JSON.stringify(vehic);
+      this.insertjsonService.addNewVehicle(jsonStrVehicle ).subscribe(
+        res => {
+          this.vehicleInsertRes= res;
+          this.carmodel  ='';
+          this.selectedyear ='';
+          this.selectedmake ='';
+          alert(this.vehicleInsertRes['status']);
+        })
+       
     }
 
   }
