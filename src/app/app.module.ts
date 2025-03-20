@@ -70,6 +70,7 @@ import { VehicleComponent } from './vehicle/vehicle.component';
 import { NewvehicleComponent } from './newvehicle/newvehicle.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { CovervehicleComponent } from './covervehicle/covervehicle.component';
+import { VehiclelistComponent } from './vehiclelist/vehiclelist.component';
 
 
 //import { InsertjsonService } from './insertjson.service'
@@ -127,7 +128,8 @@ export const MY_FORMATS = {
     EducationComponent,
     VehicleComponent,
     NewvehicleComponent,
-    CovervehicleComponent
+    CovervehicleComponent,
+    VehiclelistComponent
   ],
   imports: [
     BrowserModule,

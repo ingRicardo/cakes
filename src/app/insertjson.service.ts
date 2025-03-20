@@ -50,6 +50,7 @@ export class InsertjsonService {
 
   newvehicle_URL: string = "https://conisoft.org/cakes/insertvehicle.php";
 
+  vehiclelist_URL : string = "https://conisoft.org/cakes/loadvehicles.php";
 
   constructor(private  httpClient:  HttpClient ) {}
   
@@ -104,6 +105,10 @@ export class InsertjsonService {
 
   addNewVehicle(newvehicle :any  ): Observable<any[]> {
     return this.httpClient.post<any[]>(this.newvehicle_URL, newvehicle)
+  }
+
+  getVehiclelist(): Observable<any[]>{
+    return this.httpClient.get<any[]>(this.vehiclelist_URL);
   }
 
 }
