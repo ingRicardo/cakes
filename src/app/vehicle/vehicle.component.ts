@@ -7,21 +7,21 @@ import { Component } from '@angular/core';
 })
 export class VehicleComponent {
 
-  buttonTitle:string = "Add Vehicle";
-  buttonTitleVehi:string = "Show Vehicles";
+
   visible:boolean = false; 
   list:boolean = false;
   cover:boolean = true; 
-
+  maintenance:boolean = false;
   showhideUtility(){ 
 
  
     this.visible = this.visible?false:true; 
-    this.buttonTitle = this.visible?"Hide Add Vehicle":"Add Vehicle"; 
 
     if(this.visible){
       this.list = false;
       this.cover = false;
+      this.maintenance = false;
+
     }else
       this.cover = true;
 
@@ -29,16 +29,29 @@ export class VehicleComponent {
 
   showHideVehicles(){
     this.list = this.list?false:true; 
-    this.buttonTitleVehi = this.list?"Hide Vehicles":"Show Vehicles"; 
 
     if(this.list){
       this.visible=false;
       this.cover = false;
+      this.maintenance = false;
     }else
       this.cover = true;
 
   }
 
+  showHideCarmaintenance(){
 
+    this.maintenance = this.maintenance?false:true; 
+
+
+    if(this.maintenance){
+      this.cover = false;
+      this.list = false;
+      this.visible=false;
+
+    }else 
+      this.cover = true;
+
+  }
 
 }

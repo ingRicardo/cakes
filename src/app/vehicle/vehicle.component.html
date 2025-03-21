@@ -4,12 +4,16 @@
 <mat-drawer-container class="example-container">
     <mat-drawer #drawer mode="side" opened>
         
-        <button mat-button [matMenuTriggerFor]="menu">Menu</button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item  (click)="showhideUtility()">{{buttonTitle}}</button>
-          <button mat-menu-item (click)="showHideVehicles()">{{buttonTitleVehi}}</button>
-        </mat-menu>
-            
+ 
+        <div>
+            <button mat-raised-button  (click)="showhideUtility()" > Add vehicle</button>
+        </div>
+        <div>
+            <button mat-raised-button (click)="showHideVehicles()" > Vehicle List </button>
+        </div>  
+        <div>
+            <button mat-raised-button (click)="showHideCarmaintenance()" disabled=""> Maintenance </button>
+        </div>
     </mat-drawer>
     <mat-drawer-content>
         <button mat-raised-button (click)="drawer.toggle()">Toggle Menu</button>
@@ -17,6 +21,7 @@
         <app-newvehicle *ngIf="visible" ></app-newvehicle>
         <app-covervehicle *ngIf="cover"></app-covervehicle>
         <app-vehiclelist *ngIf="list"></app-vehiclelist>
+        <app-carmaintenance *ngIf="maintenance"></app-carmaintenance>
     </mat-drawer-content>
 </mat-drawer-container>
   

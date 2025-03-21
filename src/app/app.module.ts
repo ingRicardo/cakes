@@ -73,6 +73,7 @@ import { CovervehicleComponent } from './covervehicle/covervehicle.component';
 import { VehiclelistComponent } from './vehiclelist/vehiclelist.component';
 import { MatTableModule } from '@angular/material/table'; // Or CdkTableModule
 import { MatPaginatorModule} from '@angular/material/paginator';
+import { CarmaintenanceComponent } from './carmaintenance/carmaintenance.component';
 
 
 //import { InsertjsonService } from './insertjson.service'
@@ -131,7 +132,8 @@ export const MY_FORMATS = {
     VehicleComponent,
     NewvehicleComponent,
     CovervehicleComponent,
-    VehiclelistComponent
+    VehiclelistComponent,
+    CarmaintenanceComponent
   ],
   imports: [
     BrowserModule,
