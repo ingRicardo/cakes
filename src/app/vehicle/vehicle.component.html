@@ -2,21 +2,33 @@
 
 
 <mat-drawer-container class="example-container">
-    <mat-drawer #drawer mode="side" opened>
+    <mat-drawer #drawer mode="side" (closed)="true">
         
- 
         <div>
-            <button mat-raised-button  (click)="showhideUtility()" > Add vehicle</button>
+            <button mat-raised-button   disabled=""> element 1 </button>
         </div>
-        <div>
-            <button mat-raised-button (click)="showHideVehicles()" > Vehicle List </button>
-        </div>  
-        <div>
-            <button mat-raised-button (click)="showHideCarmaintenance()" disabled=""> Maintenance </button>
-        </div>
+
     </mat-drawer>
-    <mat-drawer-content>
-        <button mat-raised-button (click)="drawer.toggle()">Toggle Menu</button>
+    <mat-drawer-content  >
+        <mat-toolbar>
+
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+              <mat-icon>menu</mat-icon>
+            </button>
+             <span>My Vehicle App</span>
+             <span class="example-spacer"></span>
+
+             <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+                <mat-menu #menu="matMenu">
+                    <button  mat-menu-item  (click)="showhideUtility()" > Add vehicle</button>
+                    <button  mat-menu-item (click)="showHideVehicles()" > Vehicle List </button>
+                    <button  mat-menu-item (click)="showHideCarmaintenance()" disabled=""> Maintenance </button>
+
+                </mat-menu>
+
+ 
+        </mat-toolbar>
+
 
         <app-newvehicle *ngIf="visible" ></app-newvehicle>
         <app-covervehicle *ngIf="cover"></app-covervehicle>
