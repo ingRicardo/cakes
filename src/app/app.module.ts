@@ -71,6 +71,8 @@ import { NewvehicleComponent } from './newvehicle/newvehicle.component';
 import {MatDividerModule} from '@angular/material/divider';
 import { CovervehicleComponent } from './covervehicle/covervehicle.component';
 import { VehiclelistComponent } from './vehiclelist/vehiclelist.component';
+import { MatTableModule } from '@angular/material/table'; // Or CdkTableModule
+import { MatPaginatorModule} from '@angular/material/paginator';
 
 
 //import { InsertjsonService } from './insertjson.service'
@@ -161,7 +163,7 @@ export const MY_FORMATS = {
       }
     }),
      MatChipsModule, MatDialogModule, MatProgressSpinnerModule, MatExpansionModule,
-     MatDividerModule
+     MatDividerModule,MatTableModule,MatPaginatorModule
     
   ],
   schemas: [
