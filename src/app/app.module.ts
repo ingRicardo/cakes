@@ -75,12 +75,22 @@ import { MatTableModule } from '@angular/material/table'; // Or CdkTableModule
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { CarmaintenanceComponent } from './carmaintenance/carmaintenance.component';
 
+//import {MatTimepickerModule} from '@angular/material/timepicker';
 
+
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
+import {NativeDateAdapter} from '@angular/material/core';
 //import { InsertjsonService } from './insertjson.service'
 // Depending on whether rollup is used, moment needs to be imported differently.
 // Since Moment.js doesn't have a default export, we normally need to import using the `* as`
 // syntax. However, rollup creates a synthetic default module and we thus need to import it using
 // the `default as` syntax.
+
+ 
+
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
@@ -133,7 +143,8 @@ export const MY_FORMATS = {
     NewvehicleComponent,
     CovervehicleComponent,
     VehiclelistComponent,
-    CarmaintenanceComponent
+    CarmaintenanceComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -165,7 +176,8 @@ export const MY_FORMATS = {
       }
     }),
      MatChipsModule, MatDialogModule, MatProgressSpinnerModule, MatExpansionModule,
-     MatDividerModule,MatTableModule,MatPaginatorModule
+     MatDividerModule,MatTableModule,MatPaginatorModule, NgxMatTimepickerModule, NgxMatDatetimePickerModule,
+     NgxMaterialTimepickerModule
     
   ],
   schemas: [
@@ -180,6 +192,7 @@ export const MY_FORMATS = {
       deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
     },
     {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+    NativeDateAdapter 
   ],
   bootstrap: [AppComponent]
 })

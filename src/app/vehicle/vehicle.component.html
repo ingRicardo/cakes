@@ -15,14 +15,13 @@
             <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
               <mat-icon>menu</mat-icon>
             </button>
-             <span>My Vehicle App</span>
-             <span class="example-spacer"></span>
+            <span class="titleclass">My Vehicle App</span>
 
              <button mat-button [matMenuTriggerFor]="menu">Menu</button>
                 <mat-menu #menu="matMenu">
                     <button  mat-menu-item  (click)="showhideUtility()" > Add vehicle</button>
                     <button  mat-menu-item (click)="showHideVehicles()" > Vehicle List </button>
-                    <button  mat-menu-item (click)="showHideCarmaintenance()" disabled=""> Maintenance </button>
+                    <button  mat-menu-item (click)="showHideCarmaintenance()"  > Maintenance </button>
 
                 </mat-menu>
 

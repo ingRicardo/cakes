@@ -1,1 +1,56 @@
-<p>Vehicle Maintenance Appointment</p>
+
+<div class="mainclass">
+    <h2>Vehicle Maintenance Appointment</h2>
+
+
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Client Name</mat-label>
+          <input matInput placeholder="Ex. Laura"    [(ngModel)]="clientname" name="clientname" >
+        </mat-form-field>
+      
+        <mat-form-field class="example-full-width">
+          <mat-label>Vehicle description</mat-label>
+          <textarea matInput placeholder="Ex. Toyota supra 2012..."  [(ngModel)]="clientvehicle" name="clientvehicle"  ></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Maintenance Type</mat-label>
+            <mat-select  [(value)]="selectedmaintype">
+              @for (maint of maints; track maint) {
+                <mat-option [value]="maint.value">{{maint.viewValue}}</mat-option>
+              }
+            </mat-select>
+        </mat-form-field>
+
+
+          <mat-form-field  class="example-full-width">
+            <mat-label>Meeting date</mat-label>
+            <input matInput [matDatepicker]="datepicker" [(ngModel)]="appointment" name="appointment" (dateChange)="updateDOB($event)">
+            <mat-datepicker #datepicker/>
+            <mat-datepicker-toggle [for]="datepicker" matSuffix/>
+          </mat-form-field>
+ 
+          <mat-form-field  class="example-full-width">
+            <mat-label>Meeting time</mat-label>
+
+          <input matInput [ngxTimepicker]="picker" [(ngModel)]="timevalue" name = "timevalue">
+          <ngx-material-timepicker #picker></ngx-material-timepicker>
+
+        </mat-form-field>
+ 
+      </form>
+
+      <section>
+        <div class="example-button-row">
+          <button  mat-flat-button  (click)="getAppoinment()">Add</button>
+
+        </div>
+      </section>
+    
+
+
+</div>
+
+
+
