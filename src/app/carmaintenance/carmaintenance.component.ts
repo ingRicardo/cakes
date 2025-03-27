@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component, model} from '@angular/core';
 //import { NgxMatCalendar } from '@angular-material-components/datetime-picker';
 import {NgModule} from '@angular/core';
  
@@ -26,6 +26,10 @@ export class CarmaintenanceComponent {
   clientvehicle !: string;
   appointment : any;
  
+
+  selected = model<Date | null>(null);
+
+
   constructor( ){}
 
 

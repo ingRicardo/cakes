@@ -23,6 +23,15 @@
             </mat-select>
         </mat-form-field>
 
+ 
+          <mat-card class="demo-inline-calendar-card">
+            <mat-calendar [(selected)]="selected"></mat-calendar>
+          </mat-card>
+          <p>Selected date: {{selected()}}</p>
+
+ 
+        
+
 <!--
           <mat-form-field  class="example-full-width">
             <mat-label>Meeting date</mat-label>
