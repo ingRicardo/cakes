@@ -32,7 +32,6 @@ import { DatePickerComponent } from './date-picker/date-picker.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';  
 import {MatNativeDateModule} from '@angular/material/core';
    
-import {MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS} from '@angular/material-moment-adapter';
 import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/core';
 import { RestapisComponent } from './restapis/restapis.component';
 import { MaincakesComponent } from './maincakes/maincakes.component';
@@ -77,9 +76,6 @@ import { CarmaintenanceComponent } from './carmaintenance/carmaintenance.compone
 
 //import {MatTimepickerModule} from '@angular/material/timepicker';
 
-
-import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 import {NativeDateAdapter} from '@angular/material/core';
 
@@ -179,8 +175,7 @@ export const MY_FORMATS = {
       }
     }),
      MatChipsModule, MatDialogModule, MatProgressSpinnerModule, MatExpansionModule,
-     MatDividerModule,MatTableModule,MatPaginatorModule, NgxMatTimepickerModule, NgxMatDatetimePickerModule,
-     NgxMaterialTimepickerModule
+     MatDividerModule,MatTableModule,MatPaginatorModule
     
   ],
   schemas: [
@@ -188,14 +183,7 @@ export const MY_FORMATS = {
   ],
   providers: [
    // InsertjsonService,
-    provideClientHydration(),
-    {
-      provide: DateAdapter,
-      useClass: MomentDateAdapter,
-      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
-    },
-    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
-    NativeDateAdapter 
+
   ],
   bootstrap: [AppComponent]
 })
