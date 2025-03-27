@@ -1,5 +1,6 @@
 import { Component, model} from '@angular/core';
- 
+import { InsertjsonService } from '../insertjson.service';
+import { VehicleAp } from '../vehicle-ap';
  
 interface Maintenance {
   value: string;
@@ -62,7 +63,9 @@ export class CarmaintenanceComponent {
 
   selected!: Date | null;
   $event: any;
-  constructor( ){}
+
+  vehicleApInsertRes : any;
+  constructor(  private insertjsonService: InsertjsonService  ) { }
 
 
   updateDOB(dateObject: any) {
@@ -74,14 +77,38 @@ export class CarmaintenanceComponent {
   
 
   getAppoinment(){
-    this.appointment = this.selected;
+
+    if(this.selected){
+      this.appointment = this.selected;
  
-    this.d = new Date(this.appointment).toISOString();
-    this.d = this.d.substring(0,10);
+      this.d = new Date(this.appointment).toISOString();
+      this.d = this.d.substring(0,10);
+    }
+
     
-    if (this.selectedmaintype && this.clientname && this.clientvehicle && this.d && this.timeselected)
-      alert(this.selectedmaintype + " " + this.clientname + " " + this.clientvehicle + " "+ this.d + " "+ this.timeselected );
-    else 
+    if (this.selectedmaintype && this.clientname && this.clientvehicle && this.selectedmaintype && this.d && this.timeselected){
+
+      //VALUES ('$inputData->ClientName', '$inputData->VehicleDesc', '$inputData->TypeMaint', '$inputData->DateAp', '$inputData->TimeAp')";
+      //    constructor(  ClientName: string, VehicleDesc: string, TypeMaint: string, DateAp : string, TimeAp : string ) {
+
+      var appoint = new VehicleAp(this.clientname,this.clientvehicle,this.selectedmaintype,this.d,this.timeselected);
+      const jsonStrVehicleAp = JSON.stringify(appoint);
+      //alert(jsonStrVehicleAp);
+      this.insertjsonService.addNewVehicleAp(jsonStrVehicleAp).subscribe(
+        res => {
+          this.vehicleApInsertRes= res;
+          this.clientname  ='';
+          this.clientvehicle ='';
+          this.selectedmaintype ='';
+          this.appointment ='';
+          this.timeselected = '';
+          
+          alert(this.vehicleApInsertRes['status']);
+          //alert(this.selectedmaintype + " " + this.clientname + " " + this.clientvehicle + " "+ this.d + " "+ this.timeselected );
+        })
+
+      
+    }else 
       alert('Fill the fields out please')
   }
 

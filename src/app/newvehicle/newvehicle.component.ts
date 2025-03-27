@@ -42,6 +42,7 @@ constructor(  private insertjsonService: InsertjsonService  ) { }
     if (this.carmodel && this.selectedyear && this.selectedmake ){
       var vehic = new Vehicle(this.carmodel, this.selectedyear, this.selectedmake);
       const jsonStrVehicle = JSON.stringify(vehic);
+   //   alert (jsonStrVehicle);
       this.insertjsonService.addNewVehicle(jsonStrVehicle ).subscribe(
         res => {
           this.vehicleInsertRes= res;

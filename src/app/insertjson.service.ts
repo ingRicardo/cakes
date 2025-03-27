@@ -52,6 +52,9 @@ export class InsertjsonService {
 
   vehiclelist_URL : string = "https://conisoft.org/cakes/loadvehicles.php";
 
+  newvehicleap_URL : string = "https://conisoft.org/cakes/insertvehicleapp.php";
+
+
   constructor(private  httpClient:  HttpClient ) {}
   
   sendCakeJson(json :any , date: any, email: any): Observable<any[]> {
@@ -111,6 +114,10 @@ export class InsertjsonService {
     return this.httpClient.get<any[]>(this.vehiclelist_URL);
   }
 
+
+  addNewVehicleAp(newvehicleap :any  ): Observable<any[]> {
+    return this.httpClient.post<any[]>(this.newvehicleap_URL, newvehicleap)
+  }
 }
 
 
