@@ -34,7 +34,6 @@
     "luxon": "^3.6.0",
     "moment": "^2.30.1",
     "ngx-bootstrap": "^12.0.0",
-    "ngx-mat-timepicker": "^19.0.0",
     "ngx-material-timepicker": "^13.1.1",
     "rxjs": "~7.8.0",
     "save": "^2.9.0",
