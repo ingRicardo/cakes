@@ -24,7 +24,6 @@
     "@angular/platform-server": "^17.0.0",
     "@angular/router": "^17.0.0",
     "@angular/ssr": "^17.0.9",
-    "@mat-datetimepicker/core": "^15.0.2",
     "@ngx-translate/core": "^15.0.0",
     "@ngx-translate/http-loader": "^8.0.0",
     "anychart": "^8.12.0",
