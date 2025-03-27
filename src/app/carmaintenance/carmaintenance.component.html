@@ -25,11 +25,18 @@
 
  
           <mat-card class="demo-inline-calendar-card">
-            <mat-calendar [(selected)]="selected"></mat-calendar>
+            <mat-calendar [(selected)]="selected"   ></mat-calendar>
           </mat-card>
-          <p>Selected date: {{selected()}}</p>
+          <p>Selected date: {{selected}}</p>
 
- 
+          <mat-form-field class="example-full-width">
+            <mat-label>Time</mat-label>
+            <mat-select  [(value)]="timeselected">
+              @for (time of times; track times) {
+                <mat-option [value]="time.value">{{time.viewValue}}</mat-option>
+              }
+            </mat-select>
+        </mat-form-field>
         
 
 <!--
@@ -50,12 +57,10 @@
  -->
       </form>
 
-      <section>
         <div class="example-button-row">
           <button  mat-flat-button  (click)="getAppoinment()">Add</button>
 
         </div>
-      </section>
     
 
 
