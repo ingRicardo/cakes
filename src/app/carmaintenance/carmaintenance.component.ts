@@ -22,33 +22,33 @@ interface Time {
 
 export class CarmaintenanceComponent {
   maints: Maintenance[] = [
-    {value: 'type-0', viewValue: 'type-0'},
-    {value: 'type-1', viewValue: 'type-1'},
-    {value: 'type-2', viewValue: 'Tacos'},
+    {value: 'type0', viewValue: 'type-0'},
+    {value: 'type1', viewValue: 'type-1'},
+    {value: 'type2', viewValue: 'Tacos'},
   ];
 
 
   times: Time[] = [
-    {value: '00:00', viewValue: '00:00'},
-    {value: '01:00', viewValue: '01:00'},
-    {value: '02:00', viewValue: '02:00'},
-    {value: '03:00', viewValue: '03:00'},
-    {value: '04:00', viewValue: '04:00'},
-    {value: '05:00', viewValue: '05:00'},
-    {value: '06:00', viewValue: '06:00'},
-    {value: '07:00', viewValue: '07:00'},
-    {value: '08:00', viewValue: '08:00'},
-    {value: '09:00', viewValue: '09:00'},
-    {value: '10:00', viewValue: '10:00'},
-    {value: '11:00', viewValue: '11:00'},
-    {value: '12:00', viewValue: '12:00'},
-    {value: '13:00', viewValue: '13:00'},
-    {value: '14:00', viewValue: '14:00'},
-    {value: '15:00', viewValue: '15:00'},
-    {value: '16:00', viewValue: '16:00'},
-    {value: '17:00', viewValue: '17:00'},
-    {value: '18:00', viewValue: '18:00'},
-    {value: '19:00', viewValue: '19:00'},
+    {value: '0000', viewValue: '00-00'},
+    {value: '0100', viewValue: '01:00'},
+    {value: '0200', viewValue: '02:00'},
+    {value: '0300', viewValue: '03:00'},
+    {value: '0400', viewValue: '04:00'},
+    {value: '0500', viewValue: '05:00'},
+    {value: '0600', viewValue: '06:00'},
+    {value: '0700', viewValue: '07:00'},
+    {value: '0800', viewValue: '08:00'},
+    {value: '0900', viewValue: '09:00'},
+    {value: '1000', viewValue: '10:00'},
+    {value: '1100', viewValue: '11:00'},
+    {value: '1200', viewValue: '12:00'},
+    {value: '1300', viewValue: '13:00'},
+    {value: '1400', viewValue: '14:00'},
+    {value: '1500', viewValue: '15:00'},
+    {value: '1600', viewValue: '16:00'},
+    {value: '1700', viewValue: '17:00'},
+    {value: '1800', viewValue: '18:00'},
+    {value: '1900', viewValue: '19:00'},
 
   ];
 
@@ -87,13 +87,13 @@ export class CarmaintenanceComponent {
 
     
     if (this.selectedmaintype && this.clientname && this.clientvehicle && this.selectedmaintype && this.d && this.timeselected){
-
+    
       //VALUES ('$inputData->ClientName', '$inputData->VehicleDesc', '$inputData->TypeMaint', '$inputData->DateAp', '$inputData->TimeAp')";
       //    constructor(  ClientName: string, VehicleDesc: string, TypeMaint: string, DateAp : string, TimeAp : string ) {
 
       var appoint = new VehicleAp(this.clientname,this.clientvehicle,this.selectedmaintype,this.d,this.timeselected);
       const jsonStrVehicleAp = JSON.stringify(appoint);
-      //alert(jsonStrVehicleAp);
+    //  alert(jsonStrVehicleAp);
       this.insertjsonService.addNewVehicleAp(jsonStrVehicleAp).subscribe(
         res => {
           this.vehicleApInsertRes= res;
@@ -105,6 +105,7 @@ export class CarmaintenanceComponent {
           
           alert(this.vehicleApInsertRes['status']);
           //alert(this.selectedmaintype + " " + this.clientname + " " + this.clientvehicle + " "+ this.d + " "+ this.timeselected );
+         // console.log(this.vehicleApInsertRes);
         })
 
       

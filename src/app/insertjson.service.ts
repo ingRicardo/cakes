@@ -52,7 +52,7 @@ export class InsertjsonService {
 
   vehiclelist_URL : string = "https://conisoft.org/cakes/loadvehicles.php";
 
-  newvehicleap_URL : string = "https://conisoft.org/cakes/insertvehicleapp.php";
+  newvehicleap_URL : string = "https://conisoft.org/cakes/insertappo.php";
 
 
   constructor(private  httpClient:  HttpClient ) {}
