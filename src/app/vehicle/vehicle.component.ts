@@ -12,6 +12,9 @@ export class VehicleComponent {
   list:boolean = false;
   cover:boolean = true; 
   maintenance:boolean = false;
+
+  maintenanceList:boolean = false;
+
   showhideUtility(){ 
 
  
@@ -21,6 +24,7 @@ export class VehicleComponent {
       this.list = false;
       this.cover = false;
       this.maintenance = false;
+      this.maintenanceList =  false;
 
     }else
       this.cover = true;
@@ -34,6 +38,8 @@ export class VehicleComponent {
       this.visible=false;
       this.cover = false;
       this.maintenance = false;
+      this.maintenanceList =  false;
+
     }else
       this.cover = true;
 
@@ -48,10 +54,25 @@ export class VehicleComponent {
       this.cover = false;
       this.list = false;
       this.visible=false;
+      this.maintenanceList =  false;
 
     }else 
       this.cover = true;
 
   }
+  showHideCarmaintenanceList(){
 
+    this.maintenanceList = this.maintenanceList?false:true; 
+
+    if(this.maintenanceList){
+      this.cover = false;
+      this.list = false;
+      this.visible=false;
+      this.maintenance =  false;
+
+    }else 
+      this.cover = true;
+
+  
+  }
 }

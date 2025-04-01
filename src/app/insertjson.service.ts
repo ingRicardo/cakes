@@ -54,6 +54,7 @@ export class InsertjsonService {
 
   newvehicleap_URL : string = "https://conisoft.org/cakes/insertappo.php";
 
+  maintlist_URL : string = "https://conisoft.org/cakes/loadmaintena.php";
 
   constructor(private  httpClient:  HttpClient ) {}
   
@@ -117,6 +118,10 @@ export class InsertjsonService {
 
   addNewVehicleAp(newvehicleap :any  ): Observable<any[]> {
     return this.httpClient.post<any[]>(this.newvehicleap_URL, newvehicleap)
+  }
+
+  getMaintenanceList() :Observable<any[]>{
+    return this.httpClient.get<any[]>(this.maintlist_URL);
   }
 }
 

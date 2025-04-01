@@ -1,0 +1,52 @@
+
+<div class="mat-elevation-z8">
+    <h2>Maintenance List</h2>
+      <table mat-table [dataSource]="dataSource">
+    
+        <!-- Position Column -->
+        <ng-container matColumnDef="clientname">
+          <th mat-header-cell *matHeaderCellDef> Client Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.clientname}} </td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="vehicledesc">
+          <th mat-header-cell *matHeaderCellDef> Car Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.vehicledesc}} </td>
+        </ng-container>
+    
+        <!-- Weight Column -->
+        <ng-container matColumnDef="typemaint">
+          <th mat-header-cell *matHeaderCellDef> Maintenance </th>
+          <td mat-cell *matCellDef="let element"> {{element.typemaint}} </td>
+        </ng-container>
+    
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="dateap">
+            <th mat-header-cell *matHeaderCellDef>  Date</th>
+            <td mat-cell *matCellDef="let element"> {{element.dateap}} </td>
+          </ng-container>
+
+        <!-- Weight Column -->
+          <ng-container matColumnDef="timeap">
+            <th mat-header-cell *matHeaderCellDef>  Time </th>
+            <td mat-cell *matCellDef="let element"> {{element.timeap}} </td>
+          </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                     showFirstLastButtons
+                     aria-label="Select page of Maintenance">
+      </mat-paginator>
+    </div>
+
+
+    <!--
+ 
+     timeap !: string;
+    
+    -->

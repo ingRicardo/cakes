@@ -78,6 +78,7 @@ import { CarmaintenanceComponent } from './carmaintenance/carmaintenance.compone
 
 
 import {NativeDateAdapter} from '@angular/material/core';
+import { MaintlistComponent } from './maintlist/maintlist.component';
 
 
 
@@ -143,6 +144,7 @@ export const MY_FORMATS = {
     CovervehicleComponent,
     VehiclelistComponent,
     CarmaintenanceComponent,
+    MaintlistComponent,
     
   ],
   imports: [

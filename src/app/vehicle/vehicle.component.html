@@ -22,6 +22,7 @@
                     <button  mat-menu-item  (click)="showhideUtility()" > Add vehicle</button>
                     <button  mat-menu-item (click)="showHideVehicles()" > Vehicle List </button>
                     <button  mat-menu-item (click)="showHideCarmaintenance()"  > Maintenance </button>
+                    <button  mat-menu-item (click)="showHideCarmaintenanceList()"  > Maintenance List</button>
 
                 </mat-menu>
 
@@ -33,6 +34,7 @@
         <app-covervehicle *ngIf="cover"></app-covervehicle>
         <app-vehiclelist *ngIf="list"></app-vehiclelist>
         <app-carmaintenance *ngIf="maintenance"></app-carmaintenance>
+        <app-maintlist *ngIf="maintenanceList"></app-maintlist>
     </mat-drawer-content>
 </mat-drawer-container>
   
