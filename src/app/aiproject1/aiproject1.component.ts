@@ -5,6 +5,29 @@ import { Component } from '@angular/core';
   templateUrl: './aiproject1.component.html',
   styleUrls: ['./aiproject1.component.css']
 })
+ 
+
 export class Aiproject1Component {
+
+
+  items = [
+    { id: 1, name: "Product A", description: "A great product." },
+    { id: 2, name: "Product B", description: "Another good product." },
+    { id: 3, name: "Product C", description: "An interesting product." },
+  ];
+
+  
+  recommendations: { id: number; name: string; description: string; }[];
+
+
+
+  constructor() {
+    this.recommendations = this.getRecommendations(2);
+  }
+
+  getRecommendations(count: number) {
+    const shuffled = [...this.items].sort(() => Math.random() - 0.5);
+    return shuffled.slice(0, count);
+  }
 
 }
