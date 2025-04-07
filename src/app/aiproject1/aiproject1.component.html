@@ -1,10 +1,10 @@
 <p>aiproject1 works!</p>
 
 
-<div *ngIf="recommendations">
+<div *ngIf="recom">
     <h2>Recommended Items</h2>
-    <div *ngFor="let item of recommendations">
-      <h3>{{ item.name }}</h3>
+    <div *ngFor="let item of recom">
+      <h3>{{ item.title }}</h3>
       <p>{{ item.description }}</p>
     </div>
   </div>
