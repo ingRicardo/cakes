@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: "dataset", component: SnnlifComponent},
   {path: "myinfo", component: MyinfoComponent},
   {path: "vehicle", component: VehicleComponent},
-  {path: "aiprject1", component: Aiproject1Component}
+  {path: "aiproject1", component: Aiproject1Component}
 
 ];
 
