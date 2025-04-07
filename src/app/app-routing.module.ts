@@ -11,6 +11,7 @@ import { ListofordersComponent } from './listoforders/listoforders.component';
 import { SnnlifComponent } from './snnlif/snnlif.component';
 import { MyinfoComponent } from './myinfo/myinfo.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
+import { Aiproject1Component } from './aiproject1/aiproject1.component';
 const routes: Routes = [
   { path: '', component: MaincakesComponent },
   { path: 'restapis', component: RestapisComponent },
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: "listoforders", component: ListofordersComponent},
   {path: "dataset", component: SnnlifComponent},
   {path: "myinfo", component: MyinfoComponent},
-  {path: "vehicle", component: VehicleComponent}
+  {path: "vehicle", component: VehicleComponent},
+  {path: "aiprject1", component: Aiproject1Component}
 
 ];
 
