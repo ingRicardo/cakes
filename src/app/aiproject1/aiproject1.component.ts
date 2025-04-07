@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RecommendationServiceService } from '../service/recommendation-service.service';
+
 @Component({
   selector: 'app-aiproject1',
   templateUrl: './aiproject1.component.html',
