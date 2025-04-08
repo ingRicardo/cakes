@@ -83,6 +83,8 @@ import { Aiproject1Component } from './aiproject1/aiproject1.component';
 import { LineargraphComponent } from './component/lineargraph/lineargraph.component';
 import { Cakesv1Component } from './cakesv1/cakesv1.component';
 import { Cakesv1horimenuComponent } from './cakesv1horimenu/cakesv1horimenu.component';
+import { Cakesv1tabsComponent } from './cakesv1tabs/cakesv1tabs.component';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -153,6 +155,7 @@ export const MY_FORMATS = {
     LineargraphComponent,
     Cakesv1Component,
     Cakesv1horimenuComponent,
+    Cakesv1tabsComponent,
     
   ],
   imports: [
@@ -185,7 +188,7 @@ export const MY_FORMATS = {
       }
     }),
      MatChipsModule, MatDialogModule, MatProgressSpinnerModule, MatExpansionModule,
-     MatDividerModule,MatTableModule,MatPaginatorModule
+     MatDividerModule,MatTableModule,MatPaginatorModule,MatListModule
     
   ],
   schemas: [
