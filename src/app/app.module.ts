@@ -81,6 +81,8 @@ import {NativeDateAdapter} from '@angular/material/core';
 import { MaintlistComponent } from './maintlist/maintlist.component';
 import { Aiproject1Component } from './aiproject1/aiproject1.component';
 import { LineargraphComponent } from './component/lineargraph/lineargraph.component';
+import { Cakesv1Component } from './cakesv1/cakesv1.component';
+import { Cakesv1horimenuComponent } from './cakesv1horimenu/cakesv1horimenu.component';
 
 
 
@@ -149,6 +151,8 @@ export const MY_FORMATS = {
     MaintlistComponent,
     Aiproject1Component,
     LineargraphComponent,
+    Cakesv1Component,
+    Cakesv1horimenuComponent,
     
   ],
   imports: [
