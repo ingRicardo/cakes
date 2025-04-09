@@ -85,6 +85,7 @@ import { Cakesv1Component } from './cakesv1/cakesv1.component';
 import { Cakesv1horimenuComponent } from './cakesv1horimenu/cakesv1horimenu.component';
 import { Cakesv1tabsComponent } from './cakesv1tabs/cakesv1tabs.component';
 import {MatListModule} from '@angular/material/list';
+import { Cakesv1loginComponent } from './cakesv1login/cakesv1login.component';
 
 
 
@@ -156,6 +157,7 @@ export const MY_FORMATS = {
     Cakesv1Component,
     Cakesv1horimenuComponent,
     Cakesv1tabsComponent,
+    Cakesv1loginComponent,
     
   ],
   imports: [

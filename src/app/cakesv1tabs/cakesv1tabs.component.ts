@@ -73,7 +73,7 @@ export const CAKES: Cakesv1cake[] = [
 export class Cakesv1tabsComponent {
   cakes = CAKES;
   cakesholi = CAKES;
-  selectedCake?: Cakesv1cake;
+ // selectedCake?: Cakesv1cake;
 
   ngOnInit() {
 

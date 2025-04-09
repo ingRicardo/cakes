@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+
+import { Output, EventEmitter, Component } from '@angular/core';
 
 @Component({
   selector: 'app-cakesv1horimenu',
@@ -7,4 +8,22 @@ import { Component } from '@angular/core';
 })
 export class Cakesv1horimenuComponent {
 
+  @Output() loginClicked = new EventEmitter<boolean>();
+  isLoginClicked: boolean = false;
+
+
+  constructor() { }
+  
+  ngOnInit() {
+    // Initialization logic here
+  }
+
+
+  login(){
+    
+    this.isLoginClicked = true;
+   // alert("Login clicked " + this.isLoginClicked);
+    this.loginClicked.emit(this.isLoginClicked);
+
+  }
 }
