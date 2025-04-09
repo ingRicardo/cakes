@@ -44,6 +44,24 @@ export const CAKES: Cakesv1cake[] = [
    },
   { id: 9, name: 'christmas9', url: 'assets/img/christmas9.jpg', occasion: 'christmas',
     breadflavor: 'vanilla', fillingflavor: '', cover: '',size:'', shape:'', layers: '', decoration: '', frosting: '',texture: '', comments: '', addingredients: ''
+  },
+  { id: 10, name: 'christmas10', url: 'assets/img/christmas10.jpg', occasion: 'christmas',
+    breadflavor: 'vanilla', fillingflavor: '', cover: '',size:'', shape:'', layers: '', decoration: '', frosting: '',texture: '', comments: '', addingredients: ''
+  },
+  { id: 11, name: 'christmas11', url: 'assets/img/christmas11.jpg', occasion: 'christmas',
+    breadflavor: 'vanilla', fillingflavor: '', cover: '',size:'', shape:'', layers: '', decoration: '', frosting: '',texture: '', comments: '', addingredients: ''
+  },
+  { id: 26, name: 'christmas26', url: 'assets/img/christmas26.jpg', occasion: 'christmas',
+    breadflavor: 'vanilla', fillingflavor: '', cover: '',size:'', shape:'', layers: '', decoration: '', frosting: '',texture: '', comments: '', addingredients: ''
+  },
+  { id: 6, name: 'halloween6', url: 'assets/img/halloween6.jpg', occasion: 'halloween',
+    breadflavor: 'vanilla', fillingflavor: '', cover: '',size:'', shape:'', layers: '', decoration: '', frosting: '',texture: '', comments: '', addingredients: ''
+  },
+  { id: 7, name: 'halloween7', url: 'assets/img/halloween7.jpg', occasion: 'halloween',
+    breadflavor: 'vanilla', fillingflavor: '', cover: '',size:'', shape:'', layers: '', decoration: '', frosting: '',texture: '', comments: '', addingredients: ''
+  },
+  { id: 8, name: 'halloween8', url: 'assets/img/halloween8.jpg', occasion: 'halloween',
+    breadflavor: 'vanilla', fillingflavor: '', cover: '',size:'', shape:'', layers: '', decoration: '', frosting: '',texture: '', comments: '', addingredients: ''
   }
 ];
 
@@ -54,12 +72,13 @@ export const CAKES: Cakesv1cake[] = [
 })
 export class Cakesv1tabsComponent {
   cakes = CAKES;
-
+  cakesholi = CAKES;
   selectedCake?: Cakesv1cake;
 
   ngOnInit() {
 
     this.cakes = this.cakes.filter(t=>t.occasion ==='birthday');
+    this.cakesholi = this.cakesholi.filter(t=> t.occasion ==='christmas' || t.occasion ==='halloween');
 
   }
 
