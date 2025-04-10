@@ -1,0 +1,49 @@
+<div class="main">
+
+<mat-drawer-container class="example-container" autosize>
+   
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+    <!--  <p>Auto-resizing sidenav</p>
+      @if (showFiller) {
+        <p>Lorem, ipsum dolor sit amet consectetur.</p>
+      }
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+-->
+      <div style="padding-left: 3px;   padding-right: 3px;  ">
+        <button class="block" mat-raised-button>Origins</button>
+
+      </div>
+      <div style="padding-left: 3px;   padding-right: 3px; ">
+        <button  class="block" mat-raised-button> Terminology</button>
+
+      </div>
+      <div style="padding-left: 3px;   padding-right: 3px; ">
+        <button  class="block" mat-raised-button> Components</button>
+
+      </div>
+  
+    </mat-drawer>
+    <mat-toolbar-row>
+
+
+          <div class='parent'>
+            <div class='child'><h2 >VideoGames</h2> </div>
+            <div class='child'> <button type="button" mat-button (click)="drawer.toggle()">
+                Menu
+              </button>
+            </div>
+          </div>
+
+
+          
+      </mat-toolbar-row>
+
+    <div class="example-sidenav-content">
+       <p>content</p>
+ 
+    </div>
+  
+  </mat-drawer-container>
+</div>

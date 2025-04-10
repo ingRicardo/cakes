@@ -13,6 +13,7 @@ import { MyinfoComponent } from './myinfo/myinfo.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { Aiproject1Component } from './aiproject1/aiproject1.component';
 import { Cakesv1Component } from './cakesv1/cakesv1.component';
+import { VideogamesComponent } from './videogames/videogames.component';
 const routes: Routes = [
   { path: '', component: MaincakesComponent },
   { path: 'restapis', component: RestapisComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: "myinfo", component: MyinfoComponent},
   {path: "vehicle", component: VehicleComponent},
   {path: "aiproject1", component: Aiproject1Component},
-  {path: "cakesv1", component: Cakesv1Component}
+  {path: "cakesv1", component: Cakesv1Component},
+  {path: "videogames", component: VideogamesComponent},
 
 ];
 
