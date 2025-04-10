@@ -1,8 +1,10 @@
 <div class="main">
 
-    <app-cakesv1horimenu (loginClicked)="getLogin($event)"  ></app-cakesv1horimenu>
+    <app-cakesv1horimenu (loginClicked)="getLogin($event)" (profileClicked)="getProfile($event)" ></app-cakesv1horimenu>
     
-    <app-cakesv1tabs *ngIf="!loggingIn"  ></app-cakesv1tabs>
+    <app-cakesv1tabs *ngIf="!loggingIn && !profile"  ></app-cakesv1tabs>
 
     <app-cakesv1login    (tabcakesClicked)="getCakes($event)"  *ngIf="loggingIn"      ></app-cakesv1login>
+
+    <app-cakev1profile  *ngIf="profile"  (profileClicked) = "getProfile($event)" ></app-cakev1profile>
 </div>

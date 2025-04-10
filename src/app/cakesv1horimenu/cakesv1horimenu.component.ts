@@ -9,9 +9,11 @@ import { Output, EventEmitter, Component } from '@angular/core';
 export class Cakesv1horimenuComponent {
 
   @Output() loginClicked = new EventEmitter<boolean>();
+  @Output() profileClicked = new EventEmitter<boolean>();
+
   isLoginClicked: boolean = false;
 
-
+  isProfileClicked: boolean = false;
   constructor() { }
   
   ngOnInit() {
@@ -26,4 +28,14 @@ export class Cakesv1horimenuComponent {
     this.loginClicked.emit(this.isLoginClicked);
 
   }
+
+ 
+
+  profile(){
+    this.isProfileClicked = true;
+    this.profileClicked.emit(this.isProfileClicked);
+
+    
+  }
+
 }

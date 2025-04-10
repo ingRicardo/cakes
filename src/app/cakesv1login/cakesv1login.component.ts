@@ -21,6 +21,7 @@ export class Cakesv1loginComponent {
   email!: string;
   password!: string;
   userInsertRes!: any;
+  userFoundRes!: any;
 
 
   constructor(private cakesv1Service: Cakesv1Service) {}
@@ -80,11 +81,34 @@ export class Cakesv1loginComponent {
         this.password = '';
        });
 
+      } 
 
+      if (this.loginview && !this.signupview && this.email && this.password && this.email.length > 0 && this.password.length > 0){
+
+
+        const user: User = {
+          name: this.name,
+          username: this.username,
+          email: this.email,
+          password: this.password,
+          created_time: new Date().toISOString()
+        };
+        alert('Login check user '+ user.email + ' ' + this.password);
+
+        const jsonuser = JSON.stringify(user);
+        // Call the service to get the user
+        this.cakesv1Service.getUser(jsonuser).subscribe(
+          response => {    
+            this.userFoundRes= response;
+            console.log('User Found:', response);
+            alert(this.userFoundRes['status'] + ' ' + this.userFoundRes['username']  );
+            // Reset form fields
+            this.name = '';
+            this.username = '';
+            this.email = '';
+            this.password = '';
+           });
       }
-
-
-    
 
   }
 
