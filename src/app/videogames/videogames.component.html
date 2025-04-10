@@ -10,9 +10,10 @@
       <button (click)="showFiller = !showFiller" mat-raised-button>
         Toggle extra text
       </button>
--->
+-->  <div  >
+
       <div style="padding-left: 3px;   padding-right: 3px;  ">
-        <button class="block" mat-raised-button>Origins</button>
+        <button class="block" mat-raised-button (click)="orignins()">Origins</button>
 
       </div>
       <div style="padding-left: 3px;   padding-right: 3px; ">
@@ -23,6 +24,11 @@
         <button  class="block" mat-raised-button> Components</button>
 
       </div>
+      <div style="padding-left: 3px;   padding-right: 3px; ">
+        <button  class="block" mat-raised-button (click)="home()"> Home</button>
+
+      </div>
+    </div>
   
     </mat-drawer>
     <mat-toolbar-row>
@@ -41,8 +47,36 @@
       </mat-toolbar-row>
 
     <div class="example-sidenav-content">
-       <p>content</p>
- 
+      <!-- <p>content</p> -->
+        <div *ngIf="originsflag"> <p>Origins</p>  
+        
+        <p>Early video games use interactive electronic devices with various display formats. The earliest example is from 1947—a "cathode-ray tube amusement device" was filed for a patent on 25 January 1947, by Thomas T. Goldsmith Jr. and Estle Ray Mann, and issued on 14 December 1948, as U.S. Patent 2455992.[2] Inspired by radar display technology, it consists of an analog device allowing a user to control the parabolic arc of a dot on the screen to simulate a missile being fired at targets, which are paper drawings fixed to the screen.[3] Other early examples include Christopher Strachey's draughts game, the Nimrod computer at the 1951 Festival of Britain; OXO, a tic-tac-toe computer game by Alexander S. Douglas for the EDSAC in 1952; Tennis for Two, an electronic interactive game engineered by William Higinbotham in 1958; and Spacewar!, written by Massachusetts Institute of Technology students Martin Graetz, Steve Russell, and Wayne Wiitanen's on a DEC PDP-1 computer in 1962. Each game has different means of display: NIMROD has a panel of lights to play the game of Nim,[4] OXO has a graphical display to play tic-tac-toe,[5] Tennis for Two has an oscilloscope to display a side view of a tennis court,[3] and Spacewar! has the DEC PDP-1's vector display to have two spaceships battle each other.[6]</p>
+        
+        </div>
+
+        <div *ngIf="homeflag">
+            home
+
+            <mat-card class="example-card" appearance="outlined">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>Greatest games</mat-card-title>
+                  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/1:1/w_640,c_limit/100-best-games-hp-b.jpg" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                  <p>
+                    We asked the world's greatest game developers, streamers, directors, writers and more to help us crown the best games of all time
+                  </p>
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button>LIKE</button>
+                  <button mat-button>SHARE</button>
+                </mat-card-actions>
+              </mat-card>
+
+
+        </div>
     </div>
   
   </mat-drawer-container>
